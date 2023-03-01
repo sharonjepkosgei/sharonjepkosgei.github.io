@@ -1,10 +1,10 @@
 [
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
+    "objectID": "assignments.html",
+    "href": "assignments.html",
+    "title": "Assignments",
     "section": "",
-    "text": "This is my personal website."
+    "text": "EPPS 6354"
   },
   {
     "objectID": "index.html",
@@ -12,33 +12,5 @@
     "title": "Sharon Jepkosgei",
     "section": "",
     "text": "I am a graduate student at the University of Texas at Dallas studying Social Data Analytics and Research. My main area of interest is healthcare policy and trends.\n\nSkills\n\nData entry with Excel\nData cleaning, management, and analysis using SPSS\n\n\n\nContact me\nEmail Sharon.Jepkosgei@UTDallas.edu Website https://sharonjepkosgei.github.io/ —"
-  },
-  {
-    "objectID": "Saa.html",
-    "href": "Saa.html",
-    "title": "Untitled",
-    "section": "",
-    "text": "Hello world"
-  },
-  {
-    "objectID": "research.html",
-    "href": "research.html",
-    "title": "Research",
-    "section": "",
-    "text": "This is my research."
-  },
-  {
-    "objectID": "Assignments.html",
-    "href": "Assignments.html",
-    "title": "assignments",
-    "section": "",
-    "text": "This are assignments."
-  },
-  {
-    "objectID": "assignments.html",
-    "href": "assignments.html",
-    "title": "Assignments",
-    "section": "",
-    "text": "EPPS 6354"
   }
 ]
