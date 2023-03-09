@@ -1,0 +1,52 @@
+project:
+  type: website
+
+website:
+  title: "Sharon Jepkosgei"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: about.qmd
+      - text: Research
+        href: research.qmd
+      - text: EPPS 6354
+        menu:
+            - href: EPPS 6354 Assignment 1.pdf
+              text: Assignment 1
+            - href: EPPS 6354 Assignment 2.pdf
+              text: Assignment 2
+            - href: EPPS 6354 Assignment 3.pdf
+              text: Assignment 3
+            - href: EPPS 6354 Assignment 4.pdf
+              text: Assignment 4
+            - href: EPPS 6354 Assignment 5.pdf
+              text: Assignment 5
+      - text: Database project
+        menu: 
+          - href: Database Proposal Presentation.pdf
+            text: Proposal Presentation
+          - href: Proposal presentation.pptx
+            text: presentation
+      - text: EPPS 6313
+        menu: 
+          - href: Homework 1.pdf
+            text: Homework 1
+          - href: Homework 2.pdf
+            text: Homework 2
+          - href: Homework 3.pdf
+            text: Homework 3
+          - href: Homework 4.pdf
+            text: Homework 4
+        
+format:
+  html:
+    theme: pulse
+    css: styles.css
+    toc: true
+    fontsize: 1.2em
+    mainfont: Open Sans
+    monofont: playfair
+
+editor: visual
+

@@ -1,5 +1,5 @@
 ---
-title: "assignments"
+title: "Assignments"
 ---
 
-This are assignments.
+**EPPS 6354**
