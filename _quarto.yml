@@ -7,38 +7,23 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - href: about.qmd
-      - text: Research
+      - text: Courses
         href: research.qmd
-      - text: EPPS 6354
+      - text: "Database project"
         menu:
-            - href: EPPS 6354 Assignment 1.pdf
-              text: Assignment 1
-            - href: EPPS 6354 Assignment 2.pdf
-              text: Assignment 2
-            - href: EPPS 6354 Assignment 3.pdf
-              text: Assignment 3
-            - href: EPPS 6354 Assignment 4.pdf
-              text: Assignment 4
-            - href: EPPS 6354 Assignment 5.pdf
-              text: Assignment 5
-      - text: Database project
-        menu: 
-          - href: Database Proposal Presentation.pdf
-            text: Proposal Presentation
-          - href: Proposal presentation.pptx
-            text: presentation
-      - text: EPPS 6313
-        menu: 
-          - href: Homework 1.pdf
-            text: Homework 1
-          - href: Homework 2.pdf
-            text: Homework 2
-          - href: Homework 3.pdf
-            text: Homework 3
-          - href: Homework 4.pdf
-            text: Homework 4
-        
+          - href: "Final Presentation.pdf"
+            text: "Final presentation"
+          - href: "Sharon_Jepkosgei_Project_epps6354.pdf"
+            text: "Final Paper"
+          - href: "Database Proposal Presentation.pdf"
+            text: "Proposal Presentation"
+      - href: "https://sharonjepkosgei.shinyapps.io/ExploreApp/"
+        text: "Explore Care App"
+      - href: "Sharon CV.pdf"
+        text: "CV"
+      
+      
+            
 format:
   html:
     theme: pulse
@@ -49,4 +34,3 @@ format:
     monofont: playfair
 
 editor: visual
-

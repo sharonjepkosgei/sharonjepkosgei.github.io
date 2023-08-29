@@ -1,17 +1,41 @@
----
-title: "Sharon Jepkosgei"
----
+<figure style="float: left; margin-left: 20px;">
+    <img src="https://raw.githubusercontent.com/sharonjepkosgei/sharonjepkosgei.github.io/main/Sharon%20Photo.jpeg" alt="Profile Image" width="180">
+    <figcaption>
+        
+    </figcaption>
+</figure>
+<br>
+<h3>
+&nbsp;&nbsp;&nbsp;**Sharon Jepkosgei**
+<h5>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Data Analyst/Economist
 
-![](https://thumbor.forbes.com/thumbor/fit-in/900x510/https://www.forbes.com/advisor/wp-content/uploads/2022/06/data_analytics_certifications_-_article_image.jpg){width="648"}
+<style>
+.link-no-underline {
+    text-decoration: none;
+}
+</style>
 
-I am a graduate student at the University of Texas at Dallas in the Social Data Analytics and Research program. My main area of interest is healthcare policy and trends.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="mailto:Sharon.Jepkosgei@UTDallas.edu" class="link-no-underline">Email,</a>
+<a href="https://sharonjepkosgei.github.io/" class="link-no-underline">Website</a>
+<br>
+<br>
+<br>
+<br>
+I am a graduate student at the <a href="https://www.utdallas.edu/" class="link-no-underline">University of Texas at Dallas</a> in the Social Data Analytics and Research program. My main area of interest is healthcare policy and trends.
 
-### Skills
+I am also a research assistant for the <a href="https://centerforbrainhealth.org/" class="link-no-underline">Centre for Brain Health</a> currently working on the <a href="https://centerforbrainhealth.org/science/brainomics" class="link-no-underline">Brainomics Venture</a>  whose aim is to drive economic and social growth through better brain health.
 
--   Advanced skills in Data Entry using Excel, and also in the creation of short survey research questionnaires.
+**Skills **
 
--   Data cleaning, management, and analysis using SPSS.
+- *Data Management*
+- *Microsoft Office Suite* 
+- *Statistical Programming Languages:* R, SPSS, and STATA
+- *RDBMS:* SQL
 
-### Contact Information
+**Education**
 
-Email [Sharon.Jepkosgei\@UTDallas.edu](mailto:Sharon.Jepkosgei@UTDallas.edu){.email} Website <https://sharonjepkosgei.github.io/> ---
++ MSc in Social Data Analytics and Research, Currently Enrolled
+<p> *The University of Texas at Dallas*
++ BS in Economics and Statistics, 2021
+<p> *Kenyatta University*
