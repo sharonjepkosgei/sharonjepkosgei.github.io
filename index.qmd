@@ -1,3 +1,12 @@
+<figure style="float: left; margin-left: 20px;">
+
+<img src="Sharon Photo.jpeg" alt="Profile Image" width="190"/>
+
+<figcaption>
+
+</figcaption>
+
+</figure>
 
 <br>
 
@@ -44,3 +53,7 @@ I am also a research assistant for the <a href="https://centerforbrainhealth.org
     <p>
 
     *Kenyatta University*
+    
+**Projects**
+
+-   <a href="https://sharonjepkosgei.shinyapps.io/ExploreApp/" class="link-no-underline">Explore Care App</a>  
