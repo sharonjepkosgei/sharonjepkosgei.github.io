@@ -10,9 +10,9 @@ title: "Courses"
 
 ### Fall 2023
 
-- [EPPS: Data Methods](#EPPS: Data Methods-fall-2023)
+- [EPPS 6302: Data Collection & Production](#EPPS: Data Methods-fall-2023)
   - [Assignment 1](Assignment.pdf)
-- [EPPS: Data Visualization](#EPPS: Data Visualization-fall-2023)
+- [EPPS 6356: Data Visualization](#EPPS: Data Visualization-fall-2023)
 
 ### Spring 2023
 
