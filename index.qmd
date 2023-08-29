@@ -1,5 +1,5 @@
 <figure style="float: left; margin-left: 20px;">
-    <img src="https://raw.githubusercontent.com/sharonjepkosgei/sharonjepkosgei.github.io/main/Sharon%20Photo.jpeg" alt="Profile Image" width="180">
+    <img src="Sharon Photo.jpeg" alt="Profile Image" width="180">
     <figcaption>
         
     </figcaption>
