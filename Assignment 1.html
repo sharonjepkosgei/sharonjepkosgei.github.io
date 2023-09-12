@@ -63,7 +63,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -84,10 +84,29 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link" href="./index.html" rel="" target="">
  <span class="menu-text">Home</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./research.html" rel="" target="">
- <span class="menu-text">Courses</span></a>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-courses" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Courses</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-courses">    
+        <li>
+    <a class="dropdown-item" href="./Data_methods.html" rel="" target="">
+ <span class="dropdown-text">EPPS 6302: Data Collection &amp; Production</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="./Data_Viz.qmd" rel="" target="">
+ <span class="dropdown-text">EPPS 6356: Data Visualization</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./informanagement.html" rel="" target="">
+ <span class="dropdown-text">EPPS 6354: Information Management</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./EconPolicy.html" rel="" target="">
+ <span class="dropdown-text">PPPE 6321: Economics of Public Policy</span></a>
+  </li>  
+    </ul>
+  </li>
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-database-project" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
  <span class="menu-text">Database project</span>
@@ -126,9 +145,7 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    </div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
