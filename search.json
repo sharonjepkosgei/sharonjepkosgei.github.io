@@ -42,6 +42,13 @@
     "text": "Course Description\n\nThis course introduces students to the use of economic methods of the analysis of public policy.A variety of public policy topics are covered including education, employment and the labor market, taxes and redistribution, access to health care, poverty and inequality, and public assistance programs.\n\n\nResearch Paper"
   },
   {
+    "objectID": "EPPS_6302_02.html",
+    "href": "EPPS_6302_02.html",
+    "title": "EPPS 6302: Assignment 2",
+    "section": "",
+    "text": "Part A: Building a Qualtrics Panel\nAdding Panel:\n\nGo to Directories (Left-upper menu)\nThen Lists and create list.\n\n\n\nMy Panel\n\n\n\n\n\nPart B: Google Trends Data\n\n\nCode\n\ninstall.packages(“gtrendsR”)\nlibrary(gtrendsR)\nBidenTrumpElection = gtrends(c(“Trump”,“Biden”,“election”), time = “all”)\npar(family=“Georgia”)\nplot(BidenTrumpElection)\n\n\n\n\n\n\n\n\nDifferences\n\nAutomation\n\ngtrendsR allows you to automate the data retrieval process using R scripts. This can save you time and effort compared to manually visiting the Google Trends website each time.\n\nData Processing\n\nWith gtrendsR, you can process and analyze Google Trends data directly within R, making it easier to perform complex analyses, create visualizations, and combine Google Trends data with other datasets.\n\nCustomization\n\nWhile the Google Trends website offers customization options, gtrendsR provides finer control over data retrieval parameters, such as date ranges and geographic regions. You can also specify additional query parameters not available on the website.\nExample:\nOne keyword\nplot(gtrends(“transgender”, time = “all”))\n\nAdjust geographic region\nplot(gtrends(c(“transgender”), geo = c(“US”,“GB”,“TW”), time = “all”))\n\n\n\n\n\nMultiple Keywords\nplot(gtrends(c(“transgender”, “women right”, “feminism”), time = “all”))"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Sharon Jepkosgei",
