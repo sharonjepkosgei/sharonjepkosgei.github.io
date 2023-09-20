@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Sharon Jepkosgei – data_visual</title>
+<title>Sharon Jepkosgei - EPPS 6356: Assignment 2</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -149,24 +183,64 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">EPPS 6356: Assignment 2</h1>
+</div>
 
 
-<section id="epps-6356-data-visualization" class="level2">
-<h2 class="anchored" data-anchor-id="epps-6356-data-visualization">EPPS 6356: Data Visualization</h2>
-<details>
-<summary>
-Course Description
-</summary>
-<p>This course builds data literacy through communicating data patterns, findings and insights via visual representation of data. This course is designed to equip data scientists with data theory, principles and concepts of visualizing data and best practices in visual data analytics. Students will learn the programming tools in generating charts, animated data and interactive contents.</p>
-</details>
-<ul>
-<li><a href="EPPS 6356 Assignment 1.pdf">Assignment 1</a></li>
-<li><a href="./EPPS_6356_02.html">Assignment 2</a></li>
-<li><a href="EPPS 6356 Assignment 3.pdf">Assignment 3</a></li>
-<li><a href="EPPS 6356 Assignment 4.pdf">Assignment 4</a></li>
-<li><a href="EPPS 6356 Assignment 5.pdf">Assignment 5</a></li>
-<li><a href="EPPS 6356 Assignment 6.pdf">Assignment 6</a></li>
-</ul>
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="scatterplot" class="level3">
+<h3 class="anchored" data-anchor-id="scatterplot">Scatterplot</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create vectors for the data</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>years <span class="ot">&lt;-</span> <span class="fu">c</span>( <span class="dv">2006</span>, <span class="dv">2007</span>, <span class="dv">2008</span>, <span class="dv">2009</span>, <span class="dv">2010</span>, <span class="dv">2011</span>, <span class="dv">2012</span>, <span class="dv">2013</span>, <span class="dv">2014</span>, <span class="dv">2015</span>, <span class="dv">2016</span>, <span class="dv">2017</span>, <span class="dv">2018</span>, <span class="dv">2019</span>, <span class="dv">2020</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>russia <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">30.5</span>, <span class="fl">31.4</span>, <span class="fl">33.1</span>, <span class="fl">32.6</span>, <span class="fl">33.4</span>, <span class="fl">32.3</span>, <span class="fl">34.3</span>, <span class="fl">34.1</span>, <span class="fl">37.0</span>, <span class="fl">38.1</span>, <span class="fl">37.5</span>, <span class="fl">35.4</span>, <span class="fl">35.1</span>, <span class="fl">34.9</span>, <span class="fl">35.1</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>usa <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">34.3</span>, <span class="fl">35.9</span>, <span class="fl">36.4</span>, <span class="fl">37.9</span>, <span class="fl">37.2</span>, <span class="fl">38.1</span>, <span class="fl">38.6</span>, <span class="fl">39.0</span>, <span class="fl">38.6</span>, <span class="fl">37.7</span>, <span class="fl">37.2</span>, <span class="fl">38.3</span>, <span class="fl">37.4</span>, <span class="fl">37.4</span>, <span class="fl">39.7</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>china <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">41.4</span>, <span class="fl">42.9</span>, <span class="fl">42.5</span>, <span class="fl">39.1</span>, <span class="fl">39.7</span>, <span class="fl">41.4</span>, <span class="fl">41.5</span>, <span class="fl">42.2</span>, <span class="fl">42.2</span>, <span class="fl">43.0</span>, <span class="fl">43.5</span>, <span class="fl">41.7</span>, <span class="fl">41.8</span>, <span class="fl">41.9</span>, <span class="fl">45.6</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a blank plot window</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot.new</span>()</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Set up the plotting window with x-axis and y-axis labels</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">plot.window</span>(<span class="at">xlim =</span> <span class="fu">range</span>(years), <span class="at">ylim =</span> <span class="fu">range</span>(<span class="fu">c</span>(russia, usa, china)))</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Add data points and lines for Russia, USA, and China</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(years, russia, <span class="at">type =</span> <span class="st">"o"</span>, <span class="at">col =</span> <span class="st">"blue"</span>, <span class="at">pch =</span> <span class="dv">19</span>)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(years, usa, <span class="at">type =</span> <span class="st">"o"</span>, <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">pch =</span> <span class="dv">17</span>)</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(years, china, <span class="at">type =</span> <span class="st">"o"</span>, <span class="at">col =</span> <span class="st">"green"</span>, <span class="at">pch =</span> <span class="dv">15</span>)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Add a text</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="dv">2012</span>, <span class="dv">45</span>, <span class="st">"Happy Planet Index Score for Countries, 2006 - 2020</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="fl">2006.5</span>, <span class="fl">40.5</span>, <span class="st">"China"</span>)</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="fl">2006.5</span>, <span class="fl">33.5</span>, <span class="st">"USA"</span>)</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="fl">2007.8</span>, <span class="dv">31</span>, <span class="st">"Russia"</span>)</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Add ticks</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">1</span>, <span class="at">at =</span> <span class="fu">seq</span>(<span class="dv">2006</span>, <span class="dv">2020</span>, <span class="at">by =</span> <span class="dv">2</span>))</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">2</span>, <span class="at">at =</span> <span class="fu">seq</span>(<span class="dv">20</span>, <span class="dv">70</span>, <span class="at">by =</span> <span class="dv">2</span>))</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Add titles and annotations</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="fu">mtext</span>(<span class="st">"Happy Planet Index Score"</span>, <span class="at">side=</span><span class="dv">2</span>, <span class="at">line=</span><span class="dv">2</span>, <span class="at">cex=</span><span class="fl">0.8</span>)</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="fu">mtext</span>(<span class="st">"Year"</span>, <span class="at">side =</span> <span class="dv">1</span>, <span class="at">line =</span> <span class="dv">2</span>, <span class="at">cex =</span> <span class="fl">0.8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="EPPS_6356_02_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="piechart" class="level3">
+<h3 class="anchored" data-anchor-id="piechart">Piechart</h3>
 
 
 </section>
