@@ -204,7 +204,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="using-rgraphics">Using RGraphics</h3>
 <div class="cell">
 <details>
-<summary>code</summary>
+<summary>Code Here</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(anscombe)  <span class="co"># Load Anscombe's data</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Set a serif font for text</span></span>
@@ -226,9 +226,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  ff[<span class="dv">2</span><span class="sc">:</span><span class="dv">3</span>] <span class="ot">&lt;-</span> <span class="fu">lapply</span>(<span class="fu">paste0</span>(<span class="fu">c</span>(<span class="st">"y"</span>, <span class="st">"x"</span>), i), as.name)</span>
 <span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  mods[[i]] <span class="ot">&lt;-</span> lmi <span class="ot">&lt;-</span> <span class="fu">lm</span>(ff, <span class="at">data =</span> anscombe)</span>
 <span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Apply coefficient</span></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(mods, coef)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Apply coefficient</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(mods, coef)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>                  lm1      lm2       lm3       lm4
@@ -236,7 +235,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 x1          0.5000909 0.500000 0.4997273 0.4999091</code></pre>
 </div>
 <details>
-<summary>code</summary>
+<summary>Code Here</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(mods, <span class="cf">function</span>(fm) <span class="fu">coef</span>(<span class="fu">summary</span>(fm)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
@@ -261,7 +260,7 @@ $lm4
 x4          0.4999091  0.1178189 4.243028 0.002164602</code></pre>
 </div>
 <details>
-<summary>code</summary>
+<summary>Code Here</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Preparing for the plots (grid)</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>op <span class="ot">&lt;-</span> <span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>), <span class="at">mar =</span> <span class="fl">0.1</span> <span class="sc">+</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">1</span>), <span class="at">oma =</span>  <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">0</span>))</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -280,78 +279,76 @@ x4          0.4999091  0.1178189 4.243028 0.002164602</code></pre>
 <p><img src="EPPS_6356_03_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="672"></p>
 </div>
 <details>
-<summary>code</summary>
+<summary>Code Here</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Reset graphical parameters</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(op)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
-<section id="using-tidyverse" class="level3">
-<h3 class="anchored" data-anchor-id="using-tidyverse">Using Tidyverse</h3>
+<section id="pre-hackathon" class="level3">
+<h3 class="anchored" data-anchor-id="pre-hackathon">Pre-hackathon</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the tidyverse package</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.3     ✔ readr     2.1.4
-✔ forcats   1.0.0     ✔ stringr   1.5.0
-✔ ggplot2   3.4.3     ✔ tibble    3.2.1
-✔ lubridate 1.9.2     ✔ tidyr     1.3.0
-✔ purrr     1.0.2     
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load Anscombe's data</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(anscombe)</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Combine the data into a long format</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>anscombe_long <span class="ot">&lt;-</span> anscombe <span class="sc">%&gt;%</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">starts_with</span>(<span class="st">"x"</span>), <span class="at">names_to =</span> <span class="st">"x_name"</span>, <span class="at">values_to =</span> <span class="st">"x"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">starts_with</span>(<span class="st">"y"</span>), <span class="at">names_to =</span> <span class="st">"y_name"</span>, <span class="at">values_to =</span> <span class="st">"y"</span>)</span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a list of lm models for each dataset</span></span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>models <span class="ot">&lt;-</span> anscombe_long <span class="sc">%&gt;%</span></span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(x_name, y_name) <span class="sc">%&gt;%</span></span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">nest</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">model =</span> <span class="fu">map</span>(data, <span class="sc">~</span> <span class="fu">lm</span>(y <span class="sc">~</span> x, <span class="at">data =</span> .x)),</span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">model_summary =</span> <span class="fu">map</span>(model, <span class="sc">~</span> broom<span class="sc">::</span><span class="fu">tidy</span>(.x))</span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Create ggplot2 plots in a grid</span></span>
-<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>plots <span class="ot">&lt;-</span> models <span class="sc">%&gt;%</span></span>
-<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot =</span> <span class="fu">map2</span>(data, model_summary, <span class="sc">~</span> {</span>
-<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>      <span class="fu">ggplot</span>(.x, <span class="fu">aes</span>(x, y)) <span class="sc">+</span></span>
-<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>        <span class="fu">geom_point</span>(<span class="at">col =</span> <span class="st">"firebrick"</span>, <span class="at">pch =</span> <span class="dv">18</span>, <span class="at">bg =</span> <span class="st">"forestgreen"</span>, <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
-<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>        <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">formula =</span> y <span class="sc">~</span> x, <span class="at">color =</span> <span class="st">"navy"</span>) <span class="sc">+</span></span>
-<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>        <span class="fu">labs</span>(<span class="at">title =</span> <span class="fu">sprintf</span>(<span class="st">"%s vs %s"</span>, y_name, x_name))</span>
-<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>    })</span>
-<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(plot)</span>
-<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Arrange the plots in a 2x2 grid</span></span>
-<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gridExtra)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attaching package: 'gridExtra'
+<details>
+<summary>Code Here</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>Installed <span class="ot">&lt;-</span> <span class="cn">TRUE</span>  <span class="co"># For checking if package is installed</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>toInstall <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"vroom"</span>, <span class="st">"finalfit"</span>, <span class="st">"tidyverse"</span>, <span class="st">"descr"</span>, <span class="st">"RColorBrewer"</span>, <span class="st">"scales"</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(Installed){<span class="fu">install.packages</span>(toInstall, <span class="at">repos =</span> <span class="st">"http://cran.us.r-project.org"</span>)}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>package 'vroom' successfully unpacked and MD5 sums checked
+package 'finalfit' successfully unpacked and MD5 sums checked
+package 'tidyverse' successfully unpacked and MD5 sums checked
+package 'descr' successfully unpacked and MD5 sums checked
+package 'RColorBrewer' successfully unpacked and MD5 sums checked
+package 'scales' successfully unpacked and MD5 sums checked
 
-The following object is masked from 'package:dplyr':
-
-    combine</code></pre>
+The downloaded binary packages are in
+    C:\Users\ADMIN\AppData\Local\Temp\Rtmp638m4Q\downloaded_packages</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grid.arrange</span>(<span class="at">grobs =</span> plots, <span class="at">ncol =</span> <span class="dv">2</span>)</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Add a title</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(grid)</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="fu">grid.text</span>(<span class="st">"Anscombe's 4 Regression data sets"</span>, <span class="at">x =</span> <span class="fl">0.5</span>, <span class="at">y =</span> <span class="fl">0.97</span>, <span class="at">gp =</span> <span class="fu">gpar</span>(<span class="at">fontsize =</span> <span class="dv">16</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details>
+<summary>Code Here</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(toInstall, require, <span class="at">character.only =</span> <span class="cn">TRUE</span>) <span class="co"># call into library</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[1]]
+[1] TRUE
+
+[[2]]
+[1] TRUE
+
+[[3]]
+[1] TRUE
+
+[[4]]
+[1] TRUE
+
+[[5]]
+[1] TRUE
+
+[[6]]
+[1] TRUE</code></pre>
+</div>
+<details>
+<summary>Code Here</summary>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Reading all real time data</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co"># vroom is the champion in reading github date, &lt; 3 sec.</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>owidall <span class="ot">=</span> <span class="fu">vroom</span>(<span class="st">"https://github.com/owid/covid-19-data/blob/master/public/data/owid-covid-data.csv?raw=true"</span>)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>owideu <span class="ot">=</span> <span class="fu">subset</span>(owidall, continent<span class="sc">==</span><span class="st">"Europe"</span>)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Europe data</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>y <span class="ot">=</span> owideu<span class="sc">$</span>new_deaths</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">as.Date</span>(owideu<span class="sc">$</span>date)</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x,y, <span class="at">pch=</span><span class="dv">20</span>, <span class="at">col=</span><span class="st">"#E7298A"</span>, <span class="at">cex =</span> .<span class="dv">5</span>, <span class="at">xaxt=</span><span class="st">'n'</span>, <span class="at">xlab =</span> <span class="st">"Date"</span>, <span class="at">ylab =</span> <span class="st">"COVID Deaths in Europe (Daily)"</span>)</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">1</span>, x, <span class="fu">format</span>(x, <span class="st">"%Y-%m"</span>), <span class="at">cex.axis =</span> .<span class="dv">7</span>, <span class="at">las =</span> <span class="dv">3</span> , <span class="at">gap.axis =</span><span class="fl">1.5</span>, <span class="at">tick =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="fu">identify</span>(x,y,owideu<span class="sc">$</span>location, <span class="at">ps=</span><span class="dv">8</span>, <span class="at">atpen=</span><span class="cn">TRUE</span>) <span class="co"># Manually identify cases by mouse click</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <p><img src="EPPS_6356_03_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
 </div>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Reset graphical parameters</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(op)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>integer(0)</code></pre>
+</div>
 </div>
 
 
