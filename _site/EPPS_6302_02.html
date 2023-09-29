@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Sharon Jepkosgei - Courses</title>
+<title>Sharon Jepkosgei - EPPS 6302: Assignment 2</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -151,7 +151,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Courses</h1>
+<h1 class="title">EPPS 6302: Assignment 2</h1>
 </div>
 
 
@@ -166,56 +166,72 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="semester" class="level2">
-<h2 class="anchored" data-anchor-id="semester">Semester</h2>
-<ul>
-<li><p><a href="#fall-2023">Fall 2023</a></p></li>
-<li><p><a href="#spring-2023">Spring 2023</a></p></li>
-</ul>
-<section id="fall-2023" class="level3">
-<h3 class="anchored" data-anchor-id="fall-2023">Fall 2023</h3>
-<ul>
-<li><a href="#EPPS:%20Data%20Methods-fall-2023">EPPS 6302: Data Collection &amp; Production</a>
-<ul>
-<li><a href="Assignment.pdf">Assignment 1</a></li>
-</ul></li>
-<li><a href="#EPPS:%20Data%20Visualization-fall-2023">EPPS 6356: Data Visualization</a></li>
-</ul>
-</section>
-<section id="spring-2023" class="level3">
-<h3 class="anchored" data-anchor-id="spring-2023">Spring 2023</h3>
-<section id="epps-6354-information-management" class="level4">
-<h4 class="anchored" data-anchor-id="epps-6354-information-management"><a href="#epps-6354-spring-2023">EPPS 6354: Information Management</a></h4>
+<section id="part-a-building-a-qualtrics-panel" class="level3">
+<h3 class="anchored" data-anchor-id="part-a-building-a-qualtrics-panel">Part A: Building a Qualtrics Panel</h3>
+<p>Adding Panel:</p>
+<ol type="1">
+<li>Go to <strong>Directories</strong> (Left-upper menu)</li>
+<li>Then <strong>Lists</strong> and create list.</li>
+</ol>
 <details>
 <summary>
-Course Description
+My Panel
 </summary>
-<p>This course introduces students to the use of economic methods of the analysis of public policy.A variety of public policy topics are covered including education, employment and the labor market, taxes and redistribution, access to health care, poverty and inequality, and public assistance programs.</p>
+<p><img src="CaptureList.PNG" class="img-fluid"></p>
 </details>
-<ul>
-<li><a href="EPPS 6354 Assignment 1.pdf">Assignment 1</a></li>
-<li><a href="EPPS 6354 Assignment 2.pdf">Assignment 2</a></li>
-<li><a href="EPPS 6354 Assignment 3.pdf">Assignment 3</a></li>
-<li><a href="EPPS 6354 Assignment 4.pdf">Assignment 4</a></li>
-<li><a href="EPPS 6354 Assignment 5.pdf">Assignment 5</a></li>
-<li><a href="EPPS 6354 Assignment 6.pdf">Assignment 6</a></li>
-</ul>
 </section>
-<section id="pppe-6321-economics-of-public-policy" class="level4">
-<h4 class="anchored" data-anchor-id="pppe-6321-economics-of-public-policy"><a href="#epps-6330-spring-2023">PPPE 6321: Economics of Public Policy</a></h4>
+<section id="part-b-google-trends-data" class="level3">
+<h3 class="anchored" data-anchor-id="part-b-google-trends-data">Part B: Google Trends Data</h3>
 <details>
 <summary>
-Course Description
+Code
 </summary>
-<p>This course introduces students to the use of economic methods of the analysis of public policy.A variety of public policy topics are covered including education, employment and the labor market, taxes and redistribution, access to health care, poverty and inequality, and public assistance programs.</p>
+<p>install.packages(“gtrendsR”)</p>
+<p>library(gtrendsR)</p>
+<p>BidenTrumpElection = gtrends(c(“Trump”,“Biden”,“election”), time = “all”)</p>
+<p>par(family=“Georgia”)</p>
+<p>plot(BidenTrumpElection)</p>
 </details>
-<ul>
-<li><a href="Final_Paper_PPPE6321_SP23_GroupB">Research Paper</a></li>
-</ul>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="Rplot.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</section>
+<section id="differences" class="level3">
+<h3 class="anchored" data-anchor-id="differences">Differences</h3>
+<ol type="1">
+<li><strong><em>Automation</em></strong></li>
+</ol>
+<p>gtrendsR allows you to automate the data retrieval process using R scripts. This can save you time and effort compared to manually visiting the Google Trends website each time.</p>
+<ol start="2" type="1">
+<li><strong><em>Data Processing</em></strong></li>
+</ol>
+<p>With gtrendsR, you can process and analyze Google Trends data directly within R, making it easier to perform complex analyses, create visualizations, and combine Google Trends data with other datasets.</p>
+<ol start="3" type="1">
+<li><strong>Customization</strong></li>
+</ol>
+<p>While the Google Trends website offers customization options, gtrendsR provides finer control over data retrieval parameters, such as date ranges and geographic regions. You can also specify additional query parameters not available on the website.</p>
+<p>Example:</p>
+<p><strong><em>One keyword</em></strong></p>
+<p>plot(gtrends(“transgender”, time = “all”))</p>
+<p><img src="tg.png" class="img-fluid" width="400"></p>
+<p><strong><em>Adjust geographic region</em></strong></p>
+<p>plot(gtrends(c(“transgender”), geo = c(“US”,“GB”,“TW”), time = “all”))</p>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="Rplottgcou.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+<p><strong><em>Multiple Keywords</em></strong></p>
+<p>plot(gtrends(c(“transgender”, “women right”, “feminism”), time = “all”))</p>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="Rplot01twf.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
 
 
-</section>
-</section>
 </section>
 
 </main> <!-- /main -->
