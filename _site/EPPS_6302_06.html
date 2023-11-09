@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Sharon Jepkosgei - EPPS 6302: Assignment 3</title>
+<title>Sharon Jepkosgei - Web Scrapping</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -185,7 +185,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">EPPS 6302: Assignment 3</h1>
+<h1 class="title">Web Scrapping</h1>
 </div>
 
 
@@ -200,137 +200,126 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<section id="quanteda" class="level1">
-<h1>Quanteda</h1>
-<section id="packages-required" class="level3">
-<h3 class="anchored" data-anchor-id="packages-required">Packages Required</h3>
 <div class="cell">
-<details>
-<summary>Code Here</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sample program for using quanteda for text modeling and analysis</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Documentation: vignette("quickstart", package = "quanteda")</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Website: https://quanteda.io/</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages(c("readr","quanteda", "quanteda.textmodels", "quanteda.textplots","quanteda.textstats","tidyverse"))</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(quanteda)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(quanteda.textmodels)</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(quanteda.textplots)</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Workshop: Scraping webpages with R rvest package</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Prerequisites: Chrome browser, Selector Gadget</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">#rm(list = ls())</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("tidyverse")</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'tidyverse' was built under R version 4.3.2</code></pre>
 </div>
-</section>
-<section id="example-with-twitter-data-a-network-plot-is-created-using-the-topgat_fcm-feature-co-occurrence-matrix" class="level3">
-<h3 class="anchored" data-anchor-id="example-with-twitter-data-a-network-plot-is-created-using-the-topgat_fcm-feature-co-occurrence-matrix">Example with twitter data: A network plot is created using the “topgat_fcm” feature co-occurrence matrix</h3>
-<div class="cell">
-<details>
-<summary>Code Here</summary>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Twitter data about President Biden and Xi summit in Novemeber 2021</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Do some background search/study on the event</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>summit <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/datageneration/datamethods/master/textanalytics/summit_11162021.csv"</span>)</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">#View(summit)</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">#head(summit)</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract text column from the dataset/df</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>sum_twt <span class="ot">=</span> summit<span class="sc">$</span>text</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co">#class(sum_twt) # check data type</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Tokenize the text</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>toks <span class="ot">=</span> <span class="fu">tokens</span>(sum_twt)</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co">#class(toks)</span></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co">#creates a document-feature matrix (DFM) from the tokens stored in the "toks" variable</span></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>sumtwtdfm <span class="ot">&lt;-</span> <span class="fu">dfm</span>(toks)</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Latent Semantic Analysis</span></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co">#textmodel_lsa is a function used to perform Latent Semantic Analysis (LSA) on a dfm </span></span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>sum_lsa <span class="ot">&lt;-</span> <span class="fu">textmodel_lsa</span>(sumtwtdfm)</span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="co">#summary(sum_lsa)</span></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="co">#tokenize the text in the "sum_twt" variable while removing punctuation</span></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>tweet_dfm <span class="ot">&lt;-</span> <span class="fu">tokens</span>(sum_twt, <span class="at">remove_punct =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">dfm</span>() <span class="co">#pass the tokenized data to the dfm() function</span></span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="co">#head(tweet_dfm)</span></span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="co">#dfm_select is a function from the quanteda package used for subsetting a DFM based on a specified pattern</span></span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>tag_dfm <span class="ot">&lt;-</span> <span class="fu">dfm_select</span>(tweet_dfm, <span class="at">pattern =</span> <span class="st">"#*"</span>) <span class="co">#only tokens that start with the '#' symbol</span></span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="co">#topfeatures is a function used to find the top N features (in this case, hashtags) in a DFM, based on their frequency.</span></span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>toptag <span class="ot">&lt;-</span> <span class="fu">names</span>(<span class="fu">topfeatures</span>(tag_dfm, <span class="dv">50</span>))</span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="co">#head(toptag, 10)</span></span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a><span class="co"># package generates various types of visualizations related to text data.</span></span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"quanteda.textplots"</span>)</span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a><span class="co">#fcm (feature co-occurrence matrix) is a function used to create a feature co-occurrence matrix from a DFM.</span></span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>tag_fcm <span class="ot">&lt;-</span> <span class="fu">fcm</span>(tag_dfm)</span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a><span class="co">#head(tag_fcm)</span></span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a><span class="co">#selects features (hashtags) that match the patterns stored in the "toptag" variable </span></span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>topgat_fcm <span class="ot">&lt;-</span> <span class="fu">fcm_select</span>(tag_fcm, <span class="at">pattern =</span> toptag)</span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a><span class="co">#a network plot is created using the "topgat_fcm" feature co-occurrence matrix</span></span>
-<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a><span class="fu">textplot_network</span>(topgat_fcm, <span class="at">min_freq =</span> <span class="dv">50</span>, <span class="at">edge_alpha =</span> <span class="fl">0.8</span>, <span class="at">edge_size =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output-display">
-<p><img src="EPPS_6302_03_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.3     ✔ readr     2.1.4
+✔ forcats   1.0.0     ✔ stringr   1.5.0
+✔ ggplot2   3.4.3     ✔ tibble    3.2.1
+✔ lubridate 1.9.2     ✔ tidyr     1.3.0
+✔ purrr     1.0.2     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
 </div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("rvest")</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rvest)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding</code></pre>
 </div>
-</section>
-<section id="a-network-plot-of-top-50-mentions" class="level3">
-<h3 class="anchored" data-anchor-id="a-network-plot-of-top-50-mentions">A network plot of top 50 mentions</h3>
-<div class="cell">
-<details>
-<summary>Code Here</summary>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#"tweet_dfm" DFM is filtered to include only tokens that start with the '@' symbol, typically representing user mentions</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>user_dfm <span class="ot">&lt;-</span> <span class="fu">dfm_select</span>(tweet_dfm, <span class="at">pattern =</span> <span class="st">"@*"</span>)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">#find the top 50 most frequently occurring user mentions</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>topuser <span class="ot">&lt;-</span> <span class="fu">names</span>(<span class="fu">topfeatures</span>(user_dfm, <span class="dv">50</span>))</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">#head(topuser, 20)</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">#creates a feature co-occurrence matrix</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>user_fcm <span class="ot">&lt;-</span> <span class="fu">fcm</span>(user_dfm)</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">#head(user_fcm, 20)</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>user_fcm <span class="ot">&lt;-</span> <span class="fu">fcm_select</span>(user_fcm, <span class="at">pattern =</span> topuser)</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="fu">textplot_network</span>(user_fcm, <span class="at">min_freq =</span> <span class="dv">20</span>, <span class="at">edge_color =</span> <span class="st">"firebrick"</span>, <span class="at">edge_alpha =</span> <span class="fl">0.8</span>, <span class="at">edge_size =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output-display">
-<p><img src="EPPS_6302_03_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">'https://en.wikipedia.org/wiki/List_of_countries_by_foreign-exchange_reserves'</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Reading the HTML code from the Wiki website</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>wikiforreserve <span class="ot">&lt;-</span> <span class="fu">read_html</span>(url)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(wikiforreserve)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "xml_document" "xml_node"    </code></pre>
 </div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Get the XPath data using Inspect element feature in Safari, Chrome or Firefox</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="do">## At Inspect tab, look for &lt;table class=....&gt; tag. Leave the table close</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Right click the table and Copy XPath, paste at html_nodes(xpath =)</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>foreignreserve <span class="ot">&lt;-</span> wikiforreserve <span class="sc">%&gt;%</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_nodes</span>(<span class="at">xpath=</span><span class="st">'//*[@id="mw-content-text"]/div/table[1]'</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_table</span>()</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(foreignreserve)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "list"</code></pre>
 </div>
-</section>
-<section id="example-2-using-presidential-speeches" class="level3">
-<h3 class="anchored" data-anchor-id="example-2-using-presidential-speeches">Example 2: Using presidential speeches</h3>
-<div class="cell">
-<details>
-<summary>Code Here</summary>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># American Presidential speeches</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Example extracted from https://quanteda.io/articles/pkgdown/examples/plotting.html</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">#"quanteda.textstats" package, which contains functions and tools for text analysis and statistics using the Quanteda framework</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(quanteda.textstats)</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">#corpus containing texts of U.S. presidential inaugural addresses.</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>data_corpus_inaugural_subset <span class="ot">&lt;-</span> </span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">corpus_subset</span>(data_corpus_inaugural, Year <span class="sc">&gt;</span> <span class="dv">1949</span>) <span class="co"># create a subset </span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="fu">kwic</span>(<span class="fu">tokens</span>(data_corpus_inaugural_subset), <span class="at">pattern =</span> <span class="st">"american"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">textplot_xray</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output-display">
-<p><img src="EPPS_6302_03_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>fores <span class="ot">=</span> foreignreserve[[<span class="dv">1</span>]]</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(fores) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Rank"</span>, <span class="st">"Country"</span>, <span class="st">"Forexres"</span>, <span class="st">"Date"</span>, <span class="st">"Change"</span>, <span class="st">"Sources"</span>)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(fores)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Rank"     "Country"  "Forexres" "Date"     "Change"   "Sources" </code></pre>
 </div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(fores<span class="sc">$</span>Country, <span class="at">n=</span><span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "China"        "Japan"        "Switzerland"  "India"        "Russia"      
+ [6] "Taiwan"       "Saudi Arabia" "Hong Kong"    "South Korea"  "Brazil"      </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Clean up variables</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="do">## What type is Rank?</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="do">## How about Date?</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove trailing notes in Date variable</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>fores<span class="sc">$</span>newdate <span class="ot">=</span> <span class="fu">str_split_fixed</span>(fores<span class="sc">$</span>Date, <span class="st">"</span><span class="sc">\\</span><span class="st">["</span>, <span class="at">n =</span> <span class="dv">2</span>)[, <span class="dv">1</span>]</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="co">#Get the csv file</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(fores, <span class="st">"fores.csv"</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<details>
-<summary>Code Here</summary>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">textplot_xray</span>(</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kwic</span>(data_corpus_inaugural_subset, <span class="at">pattern =</span> <span class="st">"american"</span>),</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kwic</span>(data_corpus_inaugural_subset, <span class="at">pattern =</span> <span class="st">"people"</span>),</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kwic</span>(data_corpus_inaugural_subset, <span class="at">pattern =</span> <span class="st">"communist"</span>)</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output-display">
-<p><img src="EPPS_6302_03_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Workshop: Scraping webpages with R rvest package</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Prerequisites: Chrome browser, Selector Gadget</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the tidyverse library for data manipulation and visualization</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the rvest package for web scraping</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"rvest"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'rvest' is in use and will not be installed</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rvest)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the URL of the IMDb search results page for movies released between January 1, 2022, and January 1, 2023</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>url1 <span class="ot">=</span> <span class="st">"https://www.imdb.com/search/title/?release_date=2022-01-01,2023-01-01"</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Read the HTML content of the IMDb page</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>imdb2022 <span class="ot">&lt;-</span> <span class="fu">read_html</span>(url1)</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Scrape movie ranks from the page (HTML nodes with class '.text-primary')</span></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>rank_data_html <span class="ot">&lt;-</span> <span class="fu">html_nodes</span>(imdb2022, <span class="st">'.text-primary'</span>)</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>rank_data <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">html_text</span>(rank_data_html))</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the first 10 movie ranks</span></span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(rank_data, <span class="at">n =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Scrape movie titles from the page (HTML nodes with class '.lister-item-header a')</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>title_data_html <span class="ot">&lt;-</span> <span class="fu">html_nodes</span>(imdb2022, <span class="st">'.lister-item-header a'</span>)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>title_data <span class="ot">&lt;-</span> <span class="fu">html_text</span>(title_data_html)</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the first 20 movie titles</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(title_data, <span class="at">n =</span> <span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "Talk to Me"           "The Gilded Age"       "Bosch: Legacy"       
+ [4] "X"                    "Our Flag Means Death" "The Bear"            
+ [7] "Wednesday"            "Scream"               "Pearl"               
+[10] "Hocus Pocus 2"        "Terrifier 2"          "Shoresy"             
+[13] "House of the Dragon"  "The Batman"           "Halloween Ends"      
+[16] "Quantum Leap"         "Severance"            "Barbarian"           
+[19] "The Midnight Club"    "Death on the Nile"   </code></pre>
 </div>
 </div>
 
 
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
