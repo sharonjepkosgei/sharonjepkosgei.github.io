@@ -166,7 +166,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Explore Care App</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="//blog//index.html" rel="" target="">
+    <a class="nav-link" href="./blog/index.html" rel="" target="">
  <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
@@ -305,7 +305,7 @@ The following object is masked from 'package:readr':
 <span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the first 10 movie ranks</span></span>
 <span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(rank_data, <span class="at">n =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>numeric(0)</code></pre>
+<pre><code> [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Scrape movie titles from the page (HTML nodes with class '.lister-item-header a')</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>title_data_html <span class="ot">&lt;-</span> <span class="fu">html_nodes</span>(imdb2022, <span class="st">'.lister-item-header a'</span>)</span>
@@ -314,7 +314,13 @@ The following object is masked from 'package:readr':
 <span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the first 20 movie titles</span></span>
 <span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(title_data, <span class="at">n =</span> <span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>character(0)</code></pre>
+<pre><code> [1] "Talk to Me"           "The Gilded Age"       "Bosch: Legacy"       
+ [4] "X"                    "Our Flag Means Death" "The Bear"            
+ [7] "Wednesday"            "Scream"               "Pearl"               
+[10] "Hocus Pocus 2"        "Terrifier 2"          "Shoresy"             
+[13] "House of the Dragon"  "The Batman"           "Halloween Ends"      
+[16] "Quantum Leap"         "Severance"            "Barbarian"           
+[19] "The Midnight Club"    "Death on the Nile"   </code></pre>
 </div>
 </div>
 
