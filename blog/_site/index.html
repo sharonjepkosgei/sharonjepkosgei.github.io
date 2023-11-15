@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Sharon Jepkosgei – data_visual</title>
+<title>Data Methods</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,6 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-listing/list.min.js"></script>
+<script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -59,12 +61,43 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script>
 
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-listing .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-title","listing-author","listing-image","listing-description","listing-categories"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -72,7 +105,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Sharon Jepkosgei</span>
+    <span class="navbar-title">Data Methods</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -80,115 +113,73 @@ ul.task-list li input[type="checkbox"] {
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll me-auto">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html" rel="" target="">
- <span class="menu-text">Home</span></a>
+    <a class="nav-link" href="./about.html" rel="" target="">
+ <span class="menu-text">About</span></a>
   </li>  
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-courses" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
- <span class="menu-text">Courses</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-courses">    
-        <li>
-    <a class="dropdown-item" href="./Data_methods.html" rel="" target="">
- <span class="dropdown-text">EPPS 6302: Data Collection &amp; Production</span></a>
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/" rel="" target=""><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
   </li>  
-        <li>
-    <a class="dropdown-item" href="./Data_visual.html" rel="" target="">
- <span class="dropdown-text">EPPS 6356: Data Visualization</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./informanagement.html" rel="" target="">
- <span class="dropdown-text">EPPS 6354: Information Management</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./EconPolicy.html" rel="" target="">
- <span class="dropdown-text">PPPE 6321: Economics of Public Policy</span></a>
-  </li>  
-    </ul>
-  </li>
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-database-project" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
- <span class="menu-text">Database project</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-database-project">    
-        <li>
-    <a class="dropdown-item" href="./Final Presentation.pdf" rel="" target="">
- <span class="dropdown-text">Final presentation</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./Sharon_Jepkosgei_Project_epps6354.pdf" rel="" target="">
- <span class="dropdown-text">Final Paper</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./Database Proposal Presentation.pdf" rel="" target="">
- <span class="dropdown-text">Proposal Presentation</span></a>
-  </li>  
-    </ul>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="https://sharonjepkosgei.shinyapps.io/ExploreApp/" rel="" target="">
- <span class="menu-text">Explore Care App</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./blog/index.html" rel="" target="">
- <span class="menu-text">Blog</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./Sharon CV.pdf" rel="" target="">
- <span class="menu-text">CV</span></a>
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com" rel="" target=""><i class="bi bi-twitter" role="img">
+</i> 
+ <span class="menu-text"></span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools ms-auto">
+            <div class="quarto-navbar-tools">
 </div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
 
 
 
-<section id="epps-6356-data-visualization" class="level2">
-<h2 class="anchored" data-anchor-id="epps-6356-data-visualization">EPPS 6356: Data Visualization</h2>
-<details>
-<summary>
-Course Description
-</summary>
-<p>This course builds data literacy through communicating data patterns, findings and insights via visual representation of data. This course is designed to equip data scientists with data theory, principles and concepts of visualizing data and best practices in visual data analytics. Students will learn the programming tools in generating charts, animated data and interactive contents.</p>
-</details>
-<ul>
-<li><p><a href="https://slides.com/sharon_j/desk">Project Proposal</a></p></li>
-<li><p><a href="EPPS 6356 Assignment 1.pdf">Assignment 1</a></p></li>
-<li><p><a href="./EPPS_6356_02.html">Assignment 2</a></p></li>
-<li><p><a href="./EPPS_6356_03.html">Assignment 3</a></p></li>
-<li><p><a href="./EPPS_6356_04.html">Assignment 4</a></p></li>
-<li><p><a href="./EPPS_6356_05.html">Assignment 5</a></p></li>
-<li><p><a href="./EPPS_6356_06.html">Assignment 6</a></p></li>
-<li><p><a href="./EPPS_6356_08.html">Assignment 8</a></p></li>
-<li><p><a href="./EPPS_6356_09.html">Assignment 9</a></p></li>
-</ul>
-</section>
-<section id="map" class="level2">
-<h2 class="anchored" data-anchor-id="map">Map</h2>
-<iframe src="./data_files/Findmeat.html" iframe="">
-<div id="quarto-navigation-envelope" class="hidden">
-<p><span class="hidden" data-render-id="quarto-int-sidebar-title">Sharon Jepkosgei</span> <span class="hidden" data-render-id="quarto-int-navbar-title">Sharon Jepkosgei</span> <span class="hidden" data-render-id="quarto-int-navbar:Home">Home</span> <span class="hidden" data-render-id="quarto-int-navbar:/index.html">/index.html</span> <span class="hidden" data-render-id="quarto-int-navbar:Courses">Courses</span> <span class="hidden" data-render-id="quarto-int-navbar:EPPS 6302: Data Collection &amp; Production">EPPS 6302: Data Collection &amp; Production</span> <span class="hidden" data-render-id="quarto-int-navbar:/Data_methods.html">/Data_methods.html</span> <span class="hidden" data-render-id="quarto-int-navbar:EPPS 6356: Data Visualization">EPPS 6356: Data Visualization</span> <span class="hidden" data-render-id="quarto-int-navbar:/Data_visual.html">/Data_visual.html</span> <span class="hidden" data-render-id="quarto-int-navbar:EPPS 6354: Information Management">EPPS 6354: Information Management</span> <span class="hidden" data-render-id="quarto-int-navbar:/informanagement.html">/informanagement.html</span> <span class="hidden" data-render-id="quarto-int-navbar:PPPE 6321: Economics of Public Policy">PPPE 6321: Economics of Public Policy</span> <span class="hidden" data-render-id="quarto-int-navbar:/EconPolicy.html">/EconPolicy.html</span> <span class="hidden" data-render-id="quarto-int-navbar:Database project">Database project</span> <span class="hidden" data-render-id="quarto-int-navbar:Final presentation">Final presentation</span> <span class="hidden" data-render-id="quarto-int-navbar:/Final Presentation.pdf">/Final Presentation.pdf</span> <span class="hidden" data-render-id="quarto-int-navbar:Final Paper">Final Paper</span> <span class="hidden" data-render-id="quarto-int-navbar:/Sharon_Jepkosgei_Project_epps6354.pdf">/Sharon_Jepkosgei_Project_epps6354.pdf</span> <span class="hidden" data-render-id="quarto-int-navbar:Proposal Presentation">Proposal Presentation</span> <span class="hidden" data-render-id="quarto-int-navbar:/Database Proposal Presentation.pdf">/Database Proposal Presentation.pdf</span> <span class="hidden" data-render-id="quarto-int-navbar:Explore Care App">Explore Care App</span> <span class="hidden" data-render-id="quarto-int-navbar:https://sharonjepkosgei.shinyapps.io/ExploreApp/">https://sharonjepkosgei.shinyapps.io/ExploreApp/</span> <span class="hidden" data-render-id="quarto-int-navbar:Blog">Blog</span> <span class="hidden" data-render-id="quarto-int-navbar:/blog/index.html">/blog/index.html</span> <span class="hidden" data-render-id="quarto-int-navbar:CV">CV</span> <span class="hidden" data-render-id="quarto-int-navbar:/Sharon CV.pdf">/Sharon CV.pdf</span></p>
+
+
+
+
+<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1700039740513" data-listing-reading-time-sort="4">
+<div class="thumbnail">
+<p><a href="./posts/Assignment 8/index.html"> <p class="card-img-top"><img src="posts\Assignment 8\index_files\figure-html\unnamed-chunk-1-1.png"  class="thumbnail-image card-img"/></p> </a></p>
 </div>
-<div id="quarto-meta-markdown" class="hidden">
-<p><span class="hidden" data-render-id="quarto-twittercardtitle"></span> <span class="hidden" data-render-id="quarto-ogcardtitle"></span> <span class="hidden" data-render-id="quarto-metasitename">Sharon Jepkosgei</span> <span class="hidden" data-render-id="quarto-twittercarddesc"></span> <span class="hidden" data-render-id="quarto-ogcardddesc"></span></p>
-</div>
-</section>
+<div class="body">
+<a href="./posts/Assignment 8/index.html">
+<h3 class="no-anchor listing-title">
+Data Methods: Assignment 8
+</h3>
+<div class="listing-subtitle">
 
-</main> <!-- /main -->
-<script id = "quarto-html-after-body" type="application/javascript">
+</div>
+<div class="listing-description">
+
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/Assignment 8/index.html"> </a>
+</div>
+</div>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -423,6 +414,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 </div> <!-- /content -->
 
-</body>
 
-</html></iframe></section></main></div></body></html>
+
+</body></html>
