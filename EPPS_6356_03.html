@@ -125,24 +125,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-courses">    
         <li>
-    <a class="dropdown-item" href="./Data_methods.html" rel="" target="">
- <span class="dropdown-text">EPPS 6302: Data Collection &amp; Production</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./blog/index.html" rel="" target="">
- <span class="dropdown-text">Data methods</span></a>
+    <a class="dropdown-item" href="./data methods/index.html" rel="" target="">
+ <span class="dropdown-text">Data Collection &amp; Production</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./Data_visual.html" rel="" target="">
- <span class="dropdown-text">EPPS 6356: Data Visualization</span></a>
+ <span class="dropdown-text">Data Visualization</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./informanagement.html" rel="" target="">
- <span class="dropdown-text">EPPS 6354: Information Management</span></a>
+ <span class="dropdown-text">Information Management</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./EconPolicy.html" rel="" target="">
- <span class="dropdown-text">PPPE 6321: Economics of Public Policy</span></a>
+ <span class="dropdown-text">Economics of Public Policy</span></a>
   </li>  
     </ul>
   </li>
@@ -168,10 +164,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li class="nav-item">
     <a class="nav-link" href="https://sharonjepkosgei.shinyapps.io/ExploreApp/" rel="" target="">
  <span class="menu-text">Explore Care App</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./blog/index.html" rel="" target="">
- <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./Sharon CV.pdf" rel="" target="">
@@ -299,58 +291,26 @@ x4          0.4999091  0.1178189 4.243028 0.002164602</code></pre>
 <div class="cell">
 <details>
 <summary>Code Here</summary>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>Installed <span class="ot">&lt;-</span> <span class="cn">TRUE</span>  <span class="co"># For checking if package is installed</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>toInstall <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"vroom"</span>, <span class="st">"finalfit"</span>, <span class="st">"tidyverse"</span>, <span class="st">"descr"</span>, <span class="st">"RColorBrewer"</span>, <span class="st">"scales"</span>)</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(Installed){<span class="fu">install.packages</span>(toInstall, <span class="at">repos =</span> <span class="st">"http://cran.us.r-project.org"</span>)}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>package 'vroom' successfully unpacked and MD5 sums checked
-package 'finalfit' successfully unpacked and MD5 sums checked
-package 'tidyverse' successfully unpacked and MD5 sums checked
-package 'descr' successfully unpacked and MD5 sums checked
-package 'RColorBrewer' successfully unpacked and MD5 sums checked
-package 'scales' successfully unpacked and MD5 sums checked
-
-The downloaded binary packages are in
-    C:\Users\ADMIN\AppData\Local\Temp\RtmpkJjEWU\downloaded_packages</code></pre>
-</div>
-<details>
-<summary>Code Here</summary>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(toInstall, require, <span class="at">character.only =</span> <span class="cn">TRUE</span>) <span class="co"># call into library</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>[[1]]
-[1] TRUE
-
-[[2]]
-[1] TRUE
-
-[[3]]
-[1] TRUE
-
-[[4]]
-[1] TRUE
-
-[[5]]
-[1] TRUE
-
-[[6]]
-[1] TRUE</code></pre>
-</div>
-<details>
-<summary>Code Here</summary>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Reading all real time data</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co"># vroom is the champion in reading github date, &lt; 3 sec.</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>owidall <span class="ot">=</span> <span class="fu">vroom</span>(<span class="st">"https://github.com/owid/covid-19-data/blob/master/public/data/owid-covid-data.csv?raw=true"</span>)</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>owideu <span class="ot">=</span> <span class="fu">subset</span>(owidall, continent<span class="sc">==</span><span class="st">"Europe"</span>)</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Europe data</span></span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>y <span class="ot">=</span> owideu<span class="sc">$</span>new_deaths</span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">as.Date</span>(owideu<span class="sc">$</span>date)</span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x,y, <span class="at">pch=</span><span class="dv">20</span>, <span class="at">col=</span><span class="st">"#E7298A"</span>, <span class="at">cex =</span> .<span class="dv">5</span>, <span class="at">xaxt=</span><span class="st">'n'</span>, <span class="at">xlab =</span> <span class="st">"Date"</span>, <span class="at">ylab =</span> <span class="st">"COVID Deaths in Europe (Daily)"</span>)</span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">1</span>, x, <span class="fu">format</span>(x, <span class="st">"%Y-%m"</span>), <span class="at">cex.axis =</span> .<span class="dv">7</span>, <span class="at">las =</span> <span class="dv">3</span> , <span class="at">gap.axis =</span><span class="fl">1.5</span>, <span class="at">tick =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="fu">identify</span>(x,y,owideu<span class="sc">$</span>location, <span class="at">ps=</span><span class="dv">8</span>, <span class="at">atpen=</span><span class="cn">TRUE</span>) <span class="co"># Manually identify cases by mouse click</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Installed &lt;- TRUE  # For checking if package is installed</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">#toInstall &lt;- c("vroom", "finalfit", "tidyverse", "descr", "RColorBrewer", "scales")</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">#if(Installed){install.packages(toInstall, repos = "http://cran.us.r-project.org")}</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">#lapply(toInstall, require, character.only = TRUE) # call into library</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Reading all real time data</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co"># vroom is the champion in reading github date, &lt; 3 sec.</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Load data using read.csv from the given URL</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"https://github.com/owid/covid-19-data/blob/master/public/data/owid-covid-data.csv?raw=true"</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>owidall <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(url)</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>owideu <span class="ot">=</span> <span class="fu">subset</span>(owidall, continent<span class="sc">==</span><span class="st">"Europe"</span>)</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Europe data</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>y <span class="ot">=</span> owideu<span class="sc">$</span>new_deaths</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">as.Date</span>(owideu<span class="sc">$</span>date)</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x,y, <span class="at">pch=</span><span class="dv">20</span>, <span class="at">col=</span><span class="st">"#E7298A"</span>, <span class="at">cex =</span> .<span class="dv">5</span>, <span class="at">xaxt=</span><span class="st">'n'</span>, <span class="at">xlab =</span> <span class="st">"Date"</span>, <span class="at">ylab =</span> <span class="st">"COVID Deaths in Europe (Daily)"</span>)</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">1</span>, x, <span class="fu">format</span>(x, <span class="st">"%Y-%m"</span>), <span class="at">cex.axis =</span> .<span class="dv">7</span>, <span class="at">las =</span> <span class="dv">3</span> , <span class="at">gap.axis =</span><span class="fl">1.5</span>, <span class="at">tick =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a><span class="fu">identify</span>(x,y,owideu<span class="sc">$</span>location, <span class="at">ps=</span><span class="dv">8</span>, <span class="at">atpen=</span><span class="cn">TRUE</span>) <span class="co"># Manually identify cases by mouse click</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <p><img src="EPPS_6356_03_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
