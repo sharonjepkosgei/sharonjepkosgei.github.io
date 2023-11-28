@@ -1,0 +1,21 @@
+﻿col1,insurance_status,values
+<100% FPL,Uninsured,44.6
+100%–199% FPL,Uninsured,40.2
+200%–399% FPL,Uninsured,31.3
+400%–499% FPL,Uninsured,
+500%+ FPL,Uninsured,
+<100% FPL,Medicaid,14.4
+100%–199% FPL,Medicaid,13.9
+200%–399% FPL,Medicaid,12.1
+400%–499% FPL,Medicaid,
+500%+ FPL,Medicaid,
+<100% FPL,Private/No high deductible,23.1
+100%–199% FPL,Private/No high deductible,17.9
+200%–399% FPL,Private/No high deductible,11.8
+400%–499% FPL,Private/No high deductible,7.7
+500%+ FPL,Private/No high deductible,3
+<100% FPL,Private/High deductible,
+100%–199% FPL,Private/High deductible,26
+200%–399% FPL,Private/High deductible,15.4
+400%–499% FPL,Private/High deductible,11.5
+500%+ FPL,Private/High deductible,7.3
