@@ -1,0 +1,391 @@
+name,manufacturers,year,spending
+Insulin,26,2020,0
+Humulin N ,1,2021,0.03
+Simvastatin ,17,2021,0.12
+Novolin 70-30 ,2,2021,0.12
+Simvastatin ,17,2017,0.13
+Simvastatin ,17,2018,0.13
+Simvastatin ,17,2020,0.13
+Simvastatin ,17,2016,0.14
+Simvastatin ,17,2019,0.14
+Humulin 70-30 ,1,2021,0.14
+Lantus Solostar ,1,2021,0.14
+Simvastatin ,17,2015,0.15
+Novolin R ,2,2021,0.16
+Novolin N ,2,2021,0.17
+Novolog ,1,2021,0.17
+Novolog Flexpen ,1,2021,0.17
+Novolog Mix 70-30 Flexpen ,1,2021,0.17
+Novolog Mix 70-30 ,1,2021,0.18
+Simvastatin ,17,2014,0.19
+Atorvastatin Calcium ,14,2021,0.2
+Atorvastatin Calcium ,14,2020,0.21
+Levemir ,1,2021,0.21
+Simvastatin ,17,2013,0.23
+Humulin R U-500 ,1,2021,0.23
+Atorvastatin Calcium ,14,2019,0.26
+Simvastatin ,17,2012,0.27
+Atorvastatin Calcium ,14,2018,0.27
+Atorvastatin Calcium ,14,2017,0.28
+Atorvastatin Calcium ,14,2016,0.3
+Atorvastatin Calcium ,14,2015,0.34
+c,1,2021,0.34
+Atorvastatin Calcium ,14,2014,0.44
+Atorvastatin Calcium ,14,2013,0.67
+Epinephrine ,3,2013,0.67
+Atorvastatin Calcium ,14,2012,1.89
+Flovent Diskus ,1,2012,2.18
+Ventolin HFA ,1,2012,2.19
+Ventolin HFA ,1,2013,2.33
+Flovent Diskus ,1,2013,2.38
+Epinephrine ,3,2012,2.4
+Ventolin HFA ,1,2014,2.47
+Ventolin HFA ,1,2015,2.6
+Flovent Diskus ,1,2014,2.66
+Flovent Diskus ,1,2015,2.83
+Ventolin HFA ,1,2016,2.85
+c,1,2012,2.91
+c,1,2017,2.91
+Ventolin HFA ,1,2017,2.92
+Ventolin HFA ,1,2018,3.02
+Flovent Diskus ,1,2016,3.06
+Ventolin HFA ,1,2019,3.14
+Ventolin HFA ,1,2020,3.14
+Ventolin HFA ,1,2021,3.19
+Flovent Diskus ,1,2017,3.29
+Flovent Diskus ,1,2018,3.48
+Flovent Diskus ,1,2019,3.59
+Flovent Diskus ,1,2020,3.68
+Flovent Diskus ,1,2021,3.83
+Zocor ,1,2013,4.2
+Zocor ,1,2014,4.51
+Lipitor ,1,2012,4.58
+Zocor ,1,2015,4.86
+Crestor ,1,2012,4.96
+Zocor ,1,2012,5
+Proair HFA ,1,2012,5.17
+Novolin N ,2,2012,5.18
+Novolin N ,2,2017,5.18
+Proair HFA ,1,2013,5.32
+Crestor ,1,2013,5.52
+Lipitor ,1,2013,5.54
+Proair HFA ,1,2014,5.63
+Humulin N ,1,2013,5.69
+Proair HFA ,1,2015,5.88
+Zocor ,1,2016,5.9
+Crestor ,1,2014,6.07
+Proair HFA ,1,2016,6.22
+Humulin N ,1,2014,6.34
+Novolin R ,2,2012,6.46
+Novolin R ,2,2017,6.46
+Lipitor ,1,2014,6.48
+Novolin 70-30 ,2,2012,6.54
+c,1,2013,6.54
+Novolin 70-30 ,2,2017,6.54
+Proair HFA ,1,2017,6.67
+Crestor ,1,2015,6.92
+Zocor ,1,2017,6.92
+Humulin N ,1,2012,6.96
+Humulin N ,1,2017,6.96
+Humulin 70-30 ,1,2012,6.97
+Humulin 70-30 ,1,2017,6.97
+Novolin N ,2,2013,7
+Novolin 70-30 ,2,2013,7.12
+Zocor ,1,2020,7.2
+Proair HFA ,1,2018,7.21
+Zocor ,1,2018,7.21
+Humulin N ,1,2015,7.22
+Zocor ,1,2019,7.22
+Zocor ,1,2021,7.31
+Proventil HFA ,1,2012,7.32
+c,1,2014,7.49
+Proair HFA ,1,2021,7.5
+Lipitor ,1,2015,7.54
+Humulin 70-30 ,1,2013,7.56
+Proair HFA ,1,2020,7.74
+Humulin N ,1,2016,7.79
+Proair HFA ,1,2019,7.83
+Proventil HFA ,1,2013,7.92
+Novolin R ,2,2013,7.92
+Novolin N ,2,2014,7.94
+Crestor ,1,2016,8.13
+Novolin 70-30 ,2,2014,8.16
+Crestor ,1,2017,8.33
+Crestor ,1,2019,8.48
+Crestor ,1,2018,8.52
+c,1,2015,8.64
+Proventil HFA ,1,2014,8.67
+Lipitor ,1,2016,8.72
+Crestor ,1,2020,8.72
+Novolin N ,2,2015,8.76
+Humulin 70-30 ,1,2014,8.91
+Novolin R ,2,2014,8.91
+Novolin 70-30 ,2,2015,9.08
+Crestor ,1,2021,9.19
+c,1,2016,9.47
+Proventil HFA ,1,2015,9.67
+Apidra ,1,2012,9.84
+Novolin N ,2,2016,9.86
+Novolin 70-30 ,2,2016,10.25
+Proventil HFA ,1,2016,10.41
+Novolin R ,2,2015,10.43
+Lipitor ,1,2017,10.44
+Humulin 70-30 ,1,2015,10.67
+Proventil HFA ,1,2020,11.04
+Proventil HFA ,1,2017,11.09
+Proventil HFA ,1,2021,11.23
+Proventil HFA ,1,2019,11.26
+Alvesco ,1,2020,11.55
+Novolin R ,2,2016,11.69
+Proventil HFA ,1,2018,11.72
+Lipitor ,1,2018,11.9
+Alvesco ,1,2019,11.93
+Humulin 70-30 ,1,2016,11.98
+Alvesco ,1,2021,12.06
+Apidra ,1,2013,12.35
+Lipitor ,1,2019,12.49
+Insulin,26,2012,12.53
+Lantus ,1,2012,12.57
+Levemir ,1,2012,12.71
+Levemir ,1,2017,12.71
+Apidra Solostar ,1,2012,12.9
+Humalog Mix 75-25 ,1,2012,12.96
+Humalog ,1,2012,13
+Novolog Mix 70-30 ,1,2012,13.04
+Novolog Mix 70-30 ,1,2017,13.04
+Humalog Mix 50-50 ,1,2012,13.08
+Lipitor ,1,2020,13.1
+Novolog ,1,2012,13.17
+Novolog ,1,2017,13.17
+Insulin,26,2021,13.85
+Lipitor ,1,2021,14.04
+Humalog ,1,2013,14.43
+Lantus Solostar ,1,2012,14.48
+Lantus Solostar ,1,2017,14.48
+Levemir Flexpen ,1,2012,14.58
+Flovent HFA ,1,2012,14.85
+Humalog Mix 75-25 ,1,2013,14.91
+Insulin,26,2013,14.99
+Humalog Mix 50-50 ,1,2013,15.08
+Novolog ,1,2013,15.21
+Lantus ,1,2013,15.31
+Novolog Mix 70-30 ,1,2013,15.55
+Levemir ,1,2013,15.56
+Flovent HFA ,1,2013,16.06
+Apidra Solostar ,1,2013,16.06
+Humalog Mix 75-25 Kwikpen ,1,2012,16.51
+Humalog Kwikpen U-100 ,1,2012,16.52
+Humalog Mix 50-50 Kwikpen ,1,2012,16.53
+Novolog Mix 70-30 Flexpen ,1,2012,16.6
+Novolog Mix 70-30 Flexpen ,1,2017,16.6
+Novolog Flexpen ,1,2012,16.67
+Novolog Flexpen ,1,2017,16.67
+Levemir Flexpen ,1,2013,16.92
+Apidra ,1,2014,17.03
+Lantus Solostar ,1,2013,17.09
+Humalog ,1,2014,17.63
+Flovent HFA ,1,2014,17.87
+Novolog ,1,2014,18.41
+Insulin,26,2014,18.62
+Humalog Mix 75-25 ,1,2014,18.67
+Humalog Kwikpen U-100 ,1,2013,18.71
+Humalog Mix 75-25 Kwikpen ,1,2013,18.74
+Novolog Mix 70-30 ,1,2014,18.82
+Humalog Mix 50-50 ,1,2014,18.92
+Humalog Mix 50-50 Kwikpen ,1,2013,18.93
+Flovent HFA ,1,2015,18.93
+Novolog Mix 70-30 Flexpen ,1,2013,19.08
+Novolog Flexpen ,1,2013,19.18
+Insulin,26,2017,19.18
+Flovent HFA ,1,2016,20.51
+Humalog ,1,2015,21.05
+Apidra ,1,2015,21.14
+Levemir Flexpen ,1,2014,21.15
+Symbicort ,1,2012,21.47
+Lantus ,1,2014,21.51
+Levemir ,1,2014,21.72
+Lantus Solostar ,1,2014,21.74
+Apidra Solostar ,1,2014,21.9
+Novolog ,1,2015,21.99
+Insulin,26,2015,22.03
+Flovent HFA ,1,2017,22.11
+Levemir Flexpen ,1,2015,22.23
+Levemir Flexpen ,1,2016,22.24
+Humalog Mix 75-25 ,1,2015,22.35
+Novolog Mix 70-30 ,1,2015,22.54
+Humalog Mix 50-50 ,1,2015,22.61
+Humalog Kwikpen U-100 ,1,2014,22.75
+Humalog Mix 75-25 Kwikpen ,1,2014,22.77
+Symbicort ,1,2013,22.87
+Humalog Mix 50-50 Kwikpen ,1,2014,23.01
+Novolog Mix 70-30 Flexpen ,1,2014,23.14
+Novolog Flexpen ,1,2014,23.26
+Flovent HFA ,1,2018,23.52
+Humalog ,1,2016,23.74
+Apidra ,1,2016,23.94
+Flovent HFA ,1,2019,24.15
+Insulin,26,2016,24.34
+Symbicort ,1,2014,24.54
+Lantus Solostar ,1,2016,24.6
+Lantus Solostar ,1,2015,24.69
+Flovent HFA ,1,2020,24.83
+Lantus ,1,2016,24.88
+Lantus ,1,2017,24.95
+Lantus ,1,2015,24.99
+Novolog ,1,2016,25.01
+Apidra ,1,2017,25.02
+Humalog Mix 75-25 ,1,2016,25.22
+Humalog Mix 50-50 ,1,2016,25.51
+Novolog Mix 70-30 ,1,2016,25.63
+Humalog ,1,2017,25.73
+Flovent HFA ,1,2021,25.88
+Alvesco ,1,2012,26.01
+Levemir ,1,2015,26.05
+Humalog ,1,2020,26.05
+Symbicort ,1,2015,26.38
+Apidra ,1,2018,26.44
+Humalog ,1,2019,26.55
+Lantus ,1,2018,26.56
+Humalog ,1,2021,26.76
+Levemir Flexpen ,1,2017,26.85
+Humalog ,1,2018,26.86
+Apidra Solostar ,1,2015,27.18
+Levemir ,1,2016,27.23
+Humalog Kwikpen U-100 ,1,2015,27.27
+Humalog Mix 75-25 Kwikpen ,1,2015,27.34
+Humalog Mix 50-50 Kwikpen ,1,2015,27.49
+Humalog Mix 75-25 ,1,2017,27.57
+Alvesco ,1,2013,27.71
+Novolog Mix 70-30 Flexpen ,1,2015,27.76
+Apidra ,1,2019,27.78
+Apidra ,1,2020,27.78
+Symbicort ,1,2016,27.88
+Novolog Flexpen ,1,2015,27.93
+Humalog Mix 50-50 ,1,2017,27.93
+Humulin R U-500 ,1,2012,28
+Humulin R U-500 ,1,2017,28
+Apidra ,1,2021,28.13
+Lantus ,1,2020,28.2
+Lantus ,1,2019,28.27
+Lantus ,1,2021,28.32
+Humalog Mix 75-25 ,1,2020,28.64
+Humalog Mix 50-50 ,1,2020,28.73
+Humalog Mix 75-25 ,1,2019,28.78
+Levemir Flexpen ,1,2018,28.83
+Humalog Mix 50-50 ,1,2019,28.87
+Humalog Mix 75-25 ,1,2018,28.9
+Humalog Mix 50-50 ,1,2018,28.95
+Humalog Mix 50-50 ,1,2021,29.01
+Humalog Mix 75-25 ,1,2021,29.14
+Symbicort ,1,2017,29.53
+Alvesco ,1,2014,30.1
+Humalog Kwikpen U-100 ,1,2016,30.77
+Apidra Solostar ,1,2016,30.81
+Humalog Mix 75-25 Kwikpen ,1,2016,30.87
+Humalog Mix 50-50 Kwikpen ,1,2016,31.06
+Levemir Flexpen ,1,2019,31.12
+Levemir Flexpen ,1,2020,31.33
+Novolog Mix 70-30 Flexpen ,1,2016,31.52
+Symbicort ,1,2018,31.63
+Novolog Flexpen ,1,2016,31.74
+Levemir Flexpen ,1,2021,31.86
+Apidra Solostar ,1,2017,32.16
+Alvesco ,1,2015,32.81
+Alvesco ,1,2018,32.97
+Humalog Kwikpen U-100 ,1,2017,33.54
+Symbicort ,1,2019,33.67
+Humalog Mix 75-25 Kwikpen ,1,2017,33.74
+Humalog Mix 50-50 Kwikpen ,1,2017,33.85
+Apidra Solostar ,1,2018,34.14
+Humalog Kwikpen U-100 ,1,2020,34.47
+Humalog Kwikpen U-100 ,1,2019,34.87
+Humalog Kwikpen U-100 ,1,2018,35.13
+Humalog Mix 75-25 Kwikpen ,1,2020,35.17
+Symbicort ,1,2020,35.18
+Humalog Kwikpen U-100 ,1,2021,35.21
+Humalog Mix 50-50 Kwikpen ,1,2020,35.23
+Humalog Mix 50-50 Kwikpen ,1,2019,35.37
+Humalog Mix 50-50 Kwikpen ,1,2018,35.38
+Humalog Mix 75-25 Kwikpen ,1,2019,35.38
+Humalog Mix 75-25 Kwikpen ,1,2018,35.46
+Humalog Mix 75-25 Kwikpen ,1,2021,35.8
+Humalog Mix 50-50 Kwikpen ,1,2021,35.83
+Alvesco ,1,2016,35.85
+Apidra Solostar ,1,2019,35.97
+Apidra Solostar ,1,2020,36.01
+Apidra Solostar ,1,2021,36.31
+Symbicort ,1,2021,36.77
+Humulin R U-500 ,1,2013,39.9
+Humulin R U-500 ,1,2014,48.06
+Humulin R U-500 ,1,2015,57.36
+Humulin R U-500 ,1,2016,63.96
+Novolin R ,2,2018,104.35
+Epipen Jr 2-Pak ,1,2012,106.47
+Epipen 2-Pak ,1,2012,106.53
+c,1,2018,115.08
+Epinephrine ,3,2014,118.15
+Epinephrine ,3,2015,122.67
+Epipen 2-Pak ,1,2013,129.99
+Epipen Jr 2-Pak ,1,2013,130.91
+Epinephrine ,3,2021,131.72
+Epinephrine ,3,2020,138.83
+Epinephrine ,3,2018,144.61
+Epinephrine ,3,2019,146.66
+Novolin N ,2,2018,149.07
+Epinephrine ,3,2017,150.53
+Humulin N ,1,2018,158.92
+Epinephrine ,3,2016,168.67
+Epipen 2-Pak ,1,2014,173.51
+Epipen Jr 2-Pak ,1,2014,173.89
+Novolin 70-30 ,2,2018,176.63
+Insulin,26,2018,198.89
+Humulin 70-30 ,1,2018,211.47
+Epipen 2-Pak ,1,2015,226.13
+Epipen Jr 2-Pak ,1,2015,226.25
+Novolog ,1,2018,270.57
+Epipen 2-Pak ,1,2020,283.16
+Levemir ,1,2018,285.27
+Epipen Jr 2-Pak ,1,2016,289.74
+Epipen 2-Pak ,1,2016,290.67
+Epipen 2-Pak ,1,2018,299.91
+Epipen 2-Pak ,1,2017,299.95
+Epipen 2-Pak ,1,2021,301.04
+Epipen Jr 2-Pak ,1,2020,303.87
+Epipen 2-Pak ,1,2019,306.2
+Epipen Jr 2-Pak ,1,2017,306.21
+Epipen Jr 2-Pak ,1,2021,307.4
+Epipen Jr 2-Pak ,1,2018,309.81
+Epipen Jr 2-Pak ,1,2019,312.09
+Lantus Solostar ,1,2018,355.09
+Novolog Mix 70-30 ,1,2018,385.15
+Novolog Flexpen ,1,2018,392.2
+c,1,2019,480.66
+Novolog Mix 70-30 Flexpen ,1,2018,509.74
+Novolin R ,2,2019,526.83
+Humulin N ,1,2019,811.76
+Novolin N ,2,2019,880.78
+Insulin,26,2019,1098.99
+Novolin 70-30 ,2,2019,"1,152.84"
+Humulin R U-500 ,1,2018,"1,154.34"
+Humulin 70-30 ,1,2019,"1,356.33"
+Novolog ,1,2019,"1,530.10"
+Novolog Flexpen ,1,2019,"1,797.34"
+Levemir ,1,2019,"2,060.78"
+Lantus Solostar ,1,2019,"2,072.90"
+Novolog Mix 70-30 ,1,2019,"2,509.95"
+Novolog Mix 70-30 Flexpen ,1,2019,"3,068.39"
+Humulin R U-500 ,1,2019,"6,715.26"
+Novolin R ,2,2020,"62,866,830.71"
+c,1,2020,"76,713,534.15"
+Novolin N ,2,2020,"78,589,860.53"
+Humulin N ,1,2020,"150,465,421.82"
+Novolog Mix 70-30 ,1,2020,"152,737,804.61"
+Novolin 70-30 ,2,2020,"153,828,619.20"
+Humulin R U-500 ,1,2020,"167,415,067.52"
+Humulin 70-30 ,1,2020,"196,698,472.55"
+Novolog Mix 70-30 Flexpen ,1,2020,"396,687,061.01"
+Levemir ,1,2020,"530,894,562.90"
+Novolog ,1,2020,"579,747,933.55"
+Novolog Flexpen ,1,2020,"1,163,647,228.50"
+Lantus Solostar ,1,2020,"2,526,426,477.80"
+Alvesco ,1,2017, 
