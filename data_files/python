@@ -1,0 +1,19 @@
+============================================================================
+This code: finalprojectcode.py is written on 12/4/2022. The purpose is to 
+provide the users summary statistics, trend graph, moving average graph.
+=============================================================================
+users inputs:
+1. state code: two characters of state code
+2. start year: Four digits number as starting year
+3. start month: Number format month of the year
+4. end year: Four digits number as ending year
+5. end month: Number format month of the year
+6. seasonal adjusted indicator: Y or N of the seasonal adjusted hpi 
+7. summary statistics indicator: Y or N to output summary statistics
+8. trend indicator: Y or N to output trend graph
+9. moving average indicator: Y or N to output moving average graph
+10. moving average window: window length of moving average
+11. output path: output path of all results and graphs
+
+
+Note: The data only covers the period of 01/1975 to 09/2022.
