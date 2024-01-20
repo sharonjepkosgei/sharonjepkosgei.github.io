@@ -9,6 +9,36 @@
     <script src="site_libs/quarto-nav/quarto-nav.js"></script>
     <script src="site_libs/quarto-nav/headroom.min.js"></script>
     <!-- Add other script references as needed -->
+    <style>
+        body {
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+        }
+
+        nav {
+            order: -1;
+            width: 200px;
+            background-color: #f8f9fa;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        main {
+            flex: 1;
+            margin-left: 220px;
+            padding: 20px;
+        }
+
+        nav a {
+            display: block;
+            margin-bottom: 10px;
+            text-decoration: none;
+            color: #495057;
+            font-weight: bold;
+        }
+    </style>
 </head>
 
 <body class="nav-fixed fullcontent">
@@ -25,6 +55,12 @@
     <!-- Main content section -->
     <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
         <!-- Content -->
+        <nav>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#education">Education</a>
+            <a href="#projects">Projects</a>
+        </nav>
         <main class="content" id="quarto-document-content">
             <figure style="float: left; margin-left: 20px;" class="figure">
                 <p><img src="Sharon Photo.jpeg" alt="Profile Image" width="190" class="figure-img"></p>
