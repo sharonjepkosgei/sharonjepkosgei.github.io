@@ -1,30 +1,93 @@
 [
   {
-    "objectID": "posts/Assignment 10/index.html",
-    "href": "posts/Assignment 10/index.html",
-    "title": "Data Methods: Assignment 8",
+    "objectID": "posts/informanagement.html",
+    "href": "posts/informanagement.html",
+    "title": "Sharon Jepkosgei",
     "section": "",
-    "text": "Code\n#install.packages(c(\"tidyverse\", \"ggmap\",\"mapproj\", \"tidycensus\",\"tigris\"))\n#lapply(c(\"tidyverse\", \"ggmap\",\"mapproj\", \"tidycensus\",\"tigris\"), require, character.only = TRUE)\n\n# an API key is required to get Census data for map creation\n# Obtain the key at http://api.census.gov/data/key_signup.html\n# Enter information about organization and email address, then consent\n# Key will be provided to email, click on activate key (wait a few minutes to activate)\n# Store the key using the following function:\n#census_api_key(\"a270f2000ce58240ad0bbe712075fe5eced22fc7\", install = TRUE,overwrite = TRUE )\n# API key will be stored in  .Renviron and can be accessed by Sys.getenv(\"CENSUS_API_KEY\")\n\n\n# Substitute with your own Census API key\n\n#census_api_key(\"a270f2000ce58240ad0bbe712075fe5eced22fc7\", install = TRUE, overwrite = TRUE ) \n\nlibrary(tidycensus)\nlibrary(ggplot2)\nlibrary(tigris) # Load Census TIGER/Line Shapefiles\noptions(tigris_use_cache = TRUE)\n\n# Get a list of American Community Survey (ACS) 2010 variables\nacs10 = tidycensus::load_variables(2010, \"acs5\", cache = TRUE)\nacs10_Profile = load_variables(2010, \"acs5/profile\", cache = TRUE)\n\nus_median_age10 &lt;- get_acs(\n  geography = \"state\",\n  variables = \"B01002_001\",\n  year = 2010,\n  survey = \"acs1\",\n  geometry = TRUE,\n  resolution = \"20m\"\n) %&gt;%\n  shift_geometry()\n\n# plot(us_median_age10$geometry)\n\nggplot(data = us_median_age10, aes(fill = estimate)) + \n  geom_sf(col=\"white\") +  # Why color is white?\n  theme_bw() +\n  scale_fill_distiller(palette = \"PuBuGn\",  # Try other palette?\n                       direction = 1) + \n  labs(title = \"  Median Age by State, 2010\",\n       caption = \"Data source: 2020 1-year ACS, US Census Bureau\",\n       fill = \"\", family=\"Palatino\") +\n  theme(legend.position=c(.08,.6), legend.direction=\"vertical\") +\n  theme(text = element_text(family = \"Palatino\"), plot.title = element_text(hjust = 0.5))\n\n\n\n\n\n\n\n\n\n\n\nCode\nlibrary(tidycensus)\nlibrary(tigris) # Load Census TIGER/Line Shapefiles\noptions(tigris_use_cache = TRUE)\n\n# Get a list of American Community Survey (ACS) 2020 variables\nacs20 = tidycensus::load_variables(2020, \"acs5\", cache = TRUE)\nacs20_Profile = load_variables(2020, \"acs5/profile\", cache = TRUE)\n\nus_median_age20 &lt;- get_acs(\n  geography = \"state\",\n  variables = \"B01002_001\",\n  year = 2019,\n  survey = \"acs1\",\n  geometry = TRUE,\n  resolution = \"20m\"\n) %&gt;%\n  shift_geometry()\n\n# plot(us_median_age10$geometry)\n\nggplot(data = us_median_age20, aes(fill = estimate)) + \n  geom_sf(col=\"white\") +  # Why color is white?\n  theme_bw() +\n  scale_fill_distiller(palette = \"PuBuGn\",  # Try other palette?\n                       direction = 1) + \n  labs(title = \"  Median Age by State, 2020\",\n       caption = \"Data source: 2020 1-year ACS, US Census Bureau\",\n       fill = \"\", family=\"Palatino\") +\n  theme(legend.position=c(.08,.6), legend.direction=\"vertical\") +\n  theme(text = element_text(family = \"Palatino\"), plot.title = element_text(hjust = 0.5))\n\n\n\n\n\n\n\n\n\n\n\n\nCode\n# Collecting and mapping Census data using API: State data and maps\n#install.packages(c(\"tidyverse\", \"ggmap\",\"mapproj\", \"tidycensus\",\"tigris\", \"tmap\", \"mapview\"))\n#lapply(c(\"tidyverse\", \"ggmap\",\"mapproj\", \"tidycensus\",\"tigris\", \"tmap\", \"mapview\"), require, character.only = TRUE)\nlibrary(tidycensus)\noptions(tigris_use_cache = TRUE)\n\n\ntx_income &lt;- get_acs(\n  geography = \"tract\", \n  variables = \"B19013_001\",\n  state = \"TX\", \n  year = 2020,\n  geometry = TRUE\n)\n#tx_income - view data\nplot(tx_income[\"estimate\"])\n\n\n\n\n\n\n\n\n\n\nCode\n# Collecting and mapping Census data using API: State data and maps\n#install.packages(c(\"tidyverse\", \"ggmap\",\"mapproj\", \"tidycensus\",\"tigris\", \"tmap\", \"mapview\"))\n#lapply(c(\"tidyverse\", \"ggmap\",\"mapproj\", \"tidycensus\",\"tigris\", \"tmap\", \"mapview\"), require, character.only = TRUE)\nlibrary(tidycensus)\noptions(tigris_use_cache = TRUE)\n\n\ntx_income10 &lt;- get_acs(\n  geography = \"tract\", \n  variables = \"B19013_001\",\n  state = \"TX\", \n  year = 2010,\n  geometry = TRUE\n)\n#tx_income - view data\nplot(tx_income10[\"estimate\"])\n\n\n\n\n\n\n\n\n\n\nCode\nlibrary(tmap)\ntmap_mode(\"view\")\n\ndallas_income &lt;- get_acs(\n  geography = \"tract\",\n  variables = \"B19013_001\",\n  year = 2020,\n  state = \"TX\",\n  county = \"Dallas\",\n  geometry = TRUE\n)\n\ntm_shape(dallas_income) + \n  tm_fill(col = \"estimate\", palette = \"YlOrRd\",\n          alpha = 0.5)\n\n\n\n\n\n\n\nCode\nlibrary(mapview)\nmapView(dallas_income, zcol = \"estimate\")\n\n\n\n\n\n\n\n\n\n\n\n\nCode\nlibrary(tmap)\ntmap_mode(\"view\")\n\ndallas_income10 &lt;- get_acs(\n  geography = \"tract\",\n  variables = \"B19013_001\",\n  year = 2010,\n  state = \"TX\",\n  county = \"Dallas\",\n  geometry = TRUE\n)\n\ntm_shape(dallas_income10) + \n  tm_fill(col = \"estimate\", palette = \"YlOrRd\",\n          alpha = 0.5)\n\n\n\n\n\n\n\nCode\nlibrary(mapview)\nmapView(dallas_income10, zcol = \"estimate\")"
+    "text": "Course Description\n\nThis course introduces students to the use of economic methods of the analysis of public policy.A variety of public policy topics are covered including education, employment and the labor market, taxes and redistribution, access to health care, poverty and inequality, and public assistance programs.\n\n\nAssignment 1\nAssignment 2\nAssignment 3\nAssignment 4\nAssignment 5\nAssignment 6"
   },
   {
-    "objectID": "posts/Assignment 10/index.html#collecting-and-mapping-census-data-using-api",
-    "href": "posts/Assignment 10/index.html#collecting-and-mapping-census-data-using-api",
-    "title": "Data Methods: Assignment 8",
+    "objectID": "posts/informanagement.html#epps-6354-information-management",
+    "href": "posts/informanagement.html#epps-6354-information-management",
+    "title": "Sharon Jepkosgei",
     "section": "",
-    "text": "Code\n#install.packages(c(\"tidyverse\", \"ggmap\",\"mapproj\", \"tidycensus\",\"tigris\"))\n#lapply(c(\"tidyverse\", \"ggmap\",\"mapproj\", \"tidycensus\",\"tigris\"), require, character.only = TRUE)\n\n# an API key is required to get Census data for map creation\n# Obtain the key at http://api.census.gov/data/key_signup.html\n# Enter information about organization and email address, then consent\n# Key will be provided to email, click on activate key (wait a few minutes to activate)\n# Store the key using the following function:\n#census_api_key(\"a270f2000ce58240ad0bbe712075fe5eced22fc7\", install = TRUE,overwrite = TRUE )\n# API key will be stored in  .Renviron and can be accessed by Sys.getenv(\"CENSUS_API_KEY\")\n\n\n# Substitute with your own Census API key\n\n#census_api_key(\"a270f2000ce58240ad0bbe712075fe5eced22fc7\", install = TRUE, overwrite = TRUE ) \n\nlibrary(tidycensus)\nlibrary(ggplot2)\nlibrary(tigris) # Load Census TIGER/Line Shapefiles\noptions(tigris_use_cache = TRUE)\n\n# Get a list of American Community Survey (ACS) 2010 variables\nacs10 = tidycensus::load_variables(2010, \"acs5\", cache = TRUE)\nacs10_Profile = load_variables(2010, \"acs5/profile\", cache = TRUE)\n\nus_median_age10 &lt;- get_acs(\n  geography = \"state\",\n  variables = \"B01002_001\",\n  year = 2010,\n  survey = \"acs1\",\n  geometry = TRUE,\n  resolution = \"20m\"\n) %&gt;%\n  shift_geometry()\n\n# plot(us_median_age10$geometry)\n\nggplot(data = us_median_age10, aes(fill = estimate)) + \n  geom_sf(col=\"white\") +  # Why color is white?\n  theme_bw() +\n  scale_fill_distiller(palette = \"PuBuGn\",  # Try other palette?\n                       direction = 1) + \n  labs(title = \"  Median Age by State, 2010\",\n       caption = \"Data source: 2020 1-year ACS, US Census Bureau\",\n       fill = \"\", family=\"Palatino\") +\n  theme(legend.position=c(.08,.6), legend.direction=\"vertical\") +\n  theme(text = element_text(family = \"Palatino\"), plot.title = element_text(hjust = 0.5))\n\n\n\n\n\n\n\n\n\n\n\nCode\nlibrary(tidycensus)\nlibrary(tigris) # Load Census TIGER/Line Shapefiles\noptions(tigris_use_cache = TRUE)\n\n# Get a list of American Community Survey (ACS) 2020 variables\nacs20 = tidycensus::load_variables(2020, \"acs5\", cache = TRUE)\nacs20_Profile = load_variables(2020, \"acs5/profile\", cache = TRUE)\n\nus_median_age20 &lt;- get_acs(\n  geography = \"state\",\n  variables = \"B01002_001\",\n  year = 2019,\n  survey = \"acs1\",\n  geometry = TRUE,\n  resolution = \"20m\"\n) %&gt;%\n  shift_geometry()\n\n# plot(us_median_age10$geometry)\n\nggplot(data = us_median_age20, aes(fill = estimate)) + \n  geom_sf(col=\"white\") +  # Why color is white?\n  theme_bw() +\n  scale_fill_distiller(palette = \"PuBuGn\",  # Try other palette?\n                       direction = 1) + \n  labs(title = \"  Median Age by State, 2020\",\n       caption = \"Data source: 2020 1-year ACS, US Census Bureau\",\n       fill = \"\", family=\"Palatino\") +\n  theme(legend.position=c(.08,.6), legend.direction=\"vertical\") +\n  theme(text = element_text(family = \"Palatino\"), plot.title = element_text(hjust = 0.5))\n\n\n\n\n\n\n\n\n\n\n\n\nCode\n# Collecting and mapping Census data using API: State data and maps\n#install.packages(c(\"tidyverse\", \"ggmap\",\"mapproj\", \"tidycensus\",\"tigris\", \"tmap\", \"mapview\"))\n#lapply(c(\"tidyverse\", \"ggmap\",\"mapproj\", \"tidycensus\",\"tigris\", \"tmap\", \"mapview\"), require, character.only = TRUE)\nlibrary(tidycensus)\noptions(tigris_use_cache = TRUE)\n\n\ntx_income &lt;- get_acs(\n  geography = \"tract\", \n  variables = \"B19013_001\",\n  state = \"TX\", \n  year = 2020,\n  geometry = TRUE\n)\n#tx_income - view data\nplot(tx_income[\"estimate\"])\n\n\n\n\n\n\n\n\n\n\nCode\n# Collecting and mapping Census data using API: State data and maps\n#install.packages(c(\"tidyverse\", \"ggmap\",\"mapproj\", \"tidycensus\",\"tigris\", \"tmap\", \"mapview\"))\n#lapply(c(\"tidyverse\", \"ggmap\",\"mapproj\", \"tidycensus\",\"tigris\", \"tmap\", \"mapview\"), require, character.only = TRUE)\nlibrary(tidycensus)\noptions(tigris_use_cache = TRUE)\n\n\ntx_income10 &lt;- get_acs(\n  geography = \"tract\", \n  variables = \"B19013_001\",\n  state = \"TX\", \n  year = 2010,\n  geometry = TRUE\n)\n#tx_income - view data\nplot(tx_income10[\"estimate\"])\n\n\n\n\n\n\n\n\n\n\nCode\nlibrary(tmap)\ntmap_mode(\"view\")\n\ndallas_income &lt;- get_acs(\n  geography = \"tract\",\n  variables = \"B19013_001\",\n  year = 2020,\n  state = \"TX\",\n  county = \"Dallas\",\n  geometry = TRUE\n)\n\ntm_shape(dallas_income) + \n  tm_fill(col = \"estimate\", palette = \"YlOrRd\",\n          alpha = 0.5)\n\n\n\n\n\n\n\nCode\nlibrary(mapview)\nmapView(dallas_income, zcol = \"estimate\")\n\n\n\n\n\n\n\n\n\n\n\n\nCode\nlibrary(tmap)\ntmap_mode(\"view\")\n\ndallas_income10 &lt;- get_acs(\n  geography = \"tract\",\n  variables = \"B19013_001\",\n  year = 2010,\n  state = \"TX\",\n  county = \"Dallas\",\n  geometry = TRUE\n)\n\ntm_shape(dallas_income10) + \n  tm_fill(col = \"estimate\", palette = \"YlOrRd\",\n          alpha = 0.5)\n\n\n\n\n\n\n\nCode\nlibrary(mapview)\nmapView(dallas_income10, zcol = \"estimate\")"
+    "text": "Course Description\n\nThis course introduces students to the use of economic methods of the analysis of public policy.A variety of public policy topics are covered including education, employment and the labor market, taxes and redistribution, access to health care, poverty and inequality, and public assistance programs.\n\n\nAssignment 1\nAssignment 2\nAssignment 3\nAssignment 4\nAssignment 5\nAssignment 6"
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
+    "objectID": "codes/Cheat Sheet.html",
+    "href": "codes/Cheat Sheet.html",
+    "title": "Cheat Sheet",
     "section": "",
-    "text": "About this blog"
+    "text": "Clear global environment use code below:\nrm(list = ls())\n\nSave dataframe to computer\n\n# Assuming you have a dataframe named samplecomment\n# Define the directory path and filename\n#directory_path &lt;- \"C:/Users/ADMIN/Desktop/Data Methods/Data\"\n#file_name &lt;- \"samplecomment.csv\"\n\n# Combine the directory path and filename using file.path()\n#file_path &lt;- file.path(directory_path, file_name)\n\n# Save the samplecomment dataframe to the specified file path as a CSV file\n#write.csv(samplecomment, file_path)\n\n# The dataframe will be saved as \"samplecomment.csv\" in the specified directory"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Data Visualization",
+    "title": "Sharon Jepkosgei",
     "section": "",
-    "text": "Assignment 10\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\nNo matching items"
+    "text": "Hi, I’m Sharon Jepkosgei\nA Data Scientist/Analyst\nEmail,  LinkedIn\nWelcome to my Website! I’m a graduate student at the University of Texas at Dallas in the Social Data Analytics and Research program. I am interested in dealing with diverse types of data and passionate about finding insights from data analytics. Skilled in SQL query, big data processing, statistical analytics, ML, NLP, and data visualization. Actively seeking a 2024 Data Analyst position. Let’s collaborate in a dynamic, innovative environment to apply data-driven insights and make a positive impact. Explore my repositories and projects, and reach out for potential collaborations. Together, we’ll harness the power of data!"
+  },
+  {
+    "objectID": "index.html#about",
+    "href": "index.html#about",
+    "title": "Sharon Jepkosgei",
+    "section": "About",
+    "text": "About\nI’m a data scientist/analyst with a strong educational background and a passion for leveraging data to drive actionable insights. I’m a Master’s student enrolled in the Social Data Analytics at The University of Texas at Dallas.\nI bring a foundation in data analysis, programming, and database management. My skills encompass a wide array of programming languages and tools, including Python, R, Tableau, SPSS, STATA, and SQL. I’m well-versed in database and big data technologies such as including PostgreSQL. I have practiced data analysis across various domains, including mental health, international economics, and political science. My dedication to data-driven decision-making is reflected in my projects.\nI have worked as a research student assistant for the Centre for Brain Health currently working on the Brainomics Venture whose aim is to drive economic and social growth through better brain health."
+  },
+  {
+    "objectID": "index.html#projects",
+    "href": "index.html#projects",
+    "title": "Sharon Jepkosgei",
+    "section": "Projects",
+    "text": "Projects\n\n\nInformation Management & Database Project\n\n\n\nExplore Care App\n\n\n\nDescription: Created an web application to locate different types of care facilities based user needs.\n\n\nTools: PostgreSQL, Shiny\n\n\nView Online | GitHub Repo\n\n\n\nWeb Scrapping & Natural Language Processing\n\n\n\n\n\n\nDescription: Utilized NLP tools to perform text analysis on over WSJ and NYT articles exxtracted from Lexis Nexis Database.\n\n\nTools: NLP, Tool\n\n\nView Online | GitHub Repo\n\n\n\n\n\n\n“EmpowerHer” Placement tool:\n\n\n\n\n\n\nDescription: Created a program to calculate and rank the best-matched placement centers for FGM survivors and a user interface to interact with the program.\n\n\nTools: Qt Designer, PyQt\n\n\nView Online | GitHub Repo\n\n\n\nData Visualization:\n\nTrends in Prescription Drugs\n\n\n\n\n\n\nDescription: Uses multiple visualization tools to depict the impact of regulations on prescription drug pricing.\n\n\nTools: Plotly, Flexdashboards, Y\n\n\nView Online | GitHub Repo"
+  },
+  {
+    "objectID": "index.html#skills",
+    "href": "index.html#skills",
+    "title": "Sharon Jepkosgei",
+    "section": "Skills",
+    "text": "Skills\n\nProgramming Languages: Python, R, SQL\nVisualization Tools: Tableau, Jupyter Notebook, R, Shiny\nLibraries: NumPy, pandas, Matplotlib.\nLanguages: English, Kiswahili\nStatistical Programming Languages: R, SPSS, and STATA"
+  },
+  {
+    "objectID": "index.html#education",
+    "href": "index.html#education",
+    "title": "Sharon Jepkosgei",
+    "section": "Education",
+    "text": "Education\n\n\n UNIVERSITY OF TEXAS AT DALLAS \n\nDallas, USA\n\n\nDegree: Master of Science in Social Data Analytics and Research\n\n\nGraduation Year: 2024\n\n\nGPA: 3.945/4.0\n\n\n\nKENYATTA UNIVERSITY\n\nNairobi, Kenya\n\n\nDegree: Bachelor of Science in Economics and Statistics\n\n\nGraduation Year: 2021\n\n\nGPA: 80/100"
+  },
+  {
+    "objectID": "index.html#contact",
+    "href": "index.html#contact",
+    "title": "Sharon Jepkosgei",
+    "section": "Contact",
+    "text": "Contact\n  jepkosgeisharon003@gmail.com\n  +325-901-4597 \n  https://www.linkedin.com/in/sharon-jep"
+  },
+  {
+    "objectID": "index.html#resume",
+    "href": "index.html#resume",
+    "title": "Sharon Jepkosgei",
+    "section": "Resume",
+    "text": "Resume"
+  },
+  {
+    "objectID": "index.html#cv",
+    "href": "index.html#cv",
+    "title": "Sharon Jepkosgei",
+    "section": "CV",
+    "text": "CV"
+  },
+  {
+    "objectID": "posts/EconPolicy.html",
+    "href": "posts/EconPolicy.html",
+    "title": "Sharon Jepkosgei",
+    "section": "",
+    "text": "Course Description\n\nThis course introduces students to the use of economic methods of the analysis of public policy.A variety of public policy topics are covered including education, employment and the labor market, taxes and redistribution, access to health care, poverty and inequality, and public assistance programs.\n\n\nResearch Paper"
+  },
+  {
+    "objectID": "posts/EconPolicy.html#pppe-6321-economics-of-public-policy",
+    "href": "posts/EconPolicy.html#pppe-6321-economics-of-public-policy",
+    "title": "Sharon Jepkosgei",
+    "section": "",
+    "text": "Course Description\n\nThis course introduces students to the use of economic methods of the analysis of public policy.A variety of public policy topics are covered including education, employment and the labor market, taxes and redistribution, access to health care, poverty and inequality, and public assistance programs.\n\n\nResearch Paper"
   }
 ]

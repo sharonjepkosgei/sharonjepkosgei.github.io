@@ -1,10 +1,11 @@
 <style>
   /* style for name */
-  .name{font-size: 30px
+  .name{font-size: 30px;
+  
     
   }
   
-  h3, h4 { color: black;
+  h3, h4, h5 { color: black;
     font-weight: bold;
   }
   
@@ -14,15 +15,22 @@
     padding: 15px; /* Adjust the padding as needed */
     margin: 2; /* Remove default margin */
   }
-
+  /* style for about*/
+  .about{
+    font-size: 30px;
+  }
   .link-no-underline {
     text-decoration: none;
   }
   /* style for projects */
    .project {
      display: flex; 
-     align-items: center;"
+     align-items: center;
+     
   }
+  .project2 {
+     display: flex; 
+     align-items: center;}
   
   /* New style for education container */
   .project-container {
@@ -35,6 +43,8 @@
     text-align: center;
     align-self: stretch;
     margin-right: 20px;
+    font-size: 20px;
+    line-height: 1;
   }
   /* style for education */
    .education {
