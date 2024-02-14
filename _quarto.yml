@@ -20,13 +20,7 @@ website:
           - href: EconPolicy.qmd
             text: "Economics of Public Policy"
       - text: "Projects"
-        menu:
-          - href: "Final Presentation.pdf"
-            text: "Final presentation"
-          - href: "Sharon_Jepkosgei_Project_epps6354.pdf"
-            text: "Final Paper"
-          - href: "Database Proposal Presentation.pdf"
-            text: "Proposal Presentation"
+        href: "https://sharonjepkosgei.github.io/#projects"
       - href: "https://sharonjepkosgei.shinyapps.io/ExploreApp/"
         text: "Explore Care App"
       - href: "posts/resume.pdf"
